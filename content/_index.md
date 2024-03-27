@@ -57,6 +57,7 @@ sections:
   #     columns: '2'
   #     view: citation
   - block: accomplishments
+    id: accomp
     content:
       # Note: `&shy;` is used to add a 'soft' hyphen in a long heading.
       title: 'Recent publication'
@@ -78,6 +79,15 @@ sections:
           organization_url: https://www.coursera.org
           title: Modeling Explainability in Security Analytics for Interpretability, Trustworthiness, and Usability
           url: 'https://arxiv.org/pdf/2210.17376.pdf'
+        - certificate_url:  
+          date_end: ''
+          date_start: '2023-07-25'
+          description: ''
+          icon: 
+          organization: ARES
+          organization_url: https://www.coursera.org
+          title: Looking Beyond IoCs Automatically Extracting Attack Patterns from External CTI
+          url: 'https://arxiv.org/pdf/2211.01753.pdf'
 
 
     design:
