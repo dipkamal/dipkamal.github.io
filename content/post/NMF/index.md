@@ -1,7 +1,7 @@
 ---
 title: Understanding Non-Negative Matrix Factorization
 subtitle: A brief overview of matrix factorization method called NMF
-date: 2019-07-12
+date: 2024-02-27
 math: true
 image:
   placement: 2
