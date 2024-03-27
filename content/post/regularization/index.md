@@ -69,18 +69,16 @@ $$
 
 So, at every iteration, the weight is shrinked by a constant factor. 
 
-Consider a squared error loss function for a network with two dimensional weight vectors w; w1 and w2. The regularization term is constrained by the value of {{< math >}}$\alpha${{< /math >}}. So, {{< math >}}$w1^2+w2^2${{< /math >}} can be expressed as a circle with radius {{< math >}}$\alpha${{< /math >}}. The squared loss is plotted as a contour plot where the center is the minimal loss without regularization. In a sense, the unregularized contour is overfitting the training data. 
-
-<img src="l1.png"
-     alt="L1 regularization"
-     style="float: left; margin-right: 10px;" />
-
-
 <img src="l2.png"
      alt="L2 regularization"
      style="float: right; margin-left: 10px;" />
+     
+Consider a squared error loss function for a network with two dimensional weight vectors w; w1 and w2. The regularization term is constrained by the value of {{< math >}}$\alpha${{< /math >}}. So, {{< math >}}$w1^2+w2^2${{< /math >}} can be expressed as a circle with radius {{< math >}}$\alpha${{< /math >}}. The squared loss is plotted as a contour plot where the center is the minimal loss without regularization. In a sense, the unregularized contour is overfitting the training data. 
+
 
 So, the goal of solving the objective function with L2 regularization is finding a point where the loss of the contour is minimum and it lies within the circle of regularizer. In the figure, w* is the point. This is not equal to zero but close to it. If we increase the size of 𝝰, the size of the circle also increases and the model will be regularized more. 
+
+
 
 <b>L1 regularization:</b>  L1 regularization views the complexity of a model as a function of the total number of features with nonzero weights. L1 regularization, also called Lasso regression, uses the following parameter norm as penalty.
 
@@ -89,6 +87,12 @@ $$
 𝛀(Θ)=||w||_1
 $$
 {{< /math >}}
+
+<img src="l1.png"
+     alt="L1 regularization"
+     style="float: center; margin-right: 10px;" />
+
+
 
 Which is the sum of absolute values of the weight. The goal of this regularization is to drive the weights of the network to zero. Some parameters of the network will be zero hence, it produces a sparse solution also called sparse parametrization. Sparsity property of L1 regularization is often used as a feature selection mechanism. 
 
