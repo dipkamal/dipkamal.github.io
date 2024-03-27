@@ -13,7 +13,7 @@ Our training optimization algorithm which only consisted of loss term, is now a 
 
 
 <b>Regularization by introducing a parameter norm penalty to model objective:</b>
-Let us consider J be the objective function of a model (loss),  {{< math >}}$\theta${{< /math >}}be its parameters, X and y be the input-output pair, $\Omega (\theta)$ be the parameter norm introduced as penalty then our modified regularized objective function is given by: 
+Let us consider J be the objective function of a model (loss),  {{< math >}}$\theta${{< /math >}} be its parameters, X and y be the input-output pair, $\Omega (\theta)$ be the parameter norm introduced as penalty then our modified regularized objective function is given by: 
 
 \begin{equation}
 \label{eq:optimization}
