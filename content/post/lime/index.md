@@ -1,7 +1,7 @@
 ---
-title: Introduction to regularization!
+title: Understanding LIME and SHAP
 date: '2023-11-04'
-summary: Short notes on regularization for machine learning
+summary: Short notes on LIME and SHAP
 ---
 
 

@@ -36,7 +36,9 @@ The above equation for NMF can be rewritten column wise as $x \approx Wh$, where
 
 To sole this optimization, we need to define a cost function that we can minimize using optimization technique like gradient descent. One of the most common cost function is Frobenius norm, where the distance between the original data vector and the approximation is computed as the Frobenius norm between the matrices. 
 
-$$D(X \mid WH) = \| X - WH \|^2_F$$
+$$
+D(X \mid WH) = \| X - WH \|^2_F
+$$
 
 where, $\| A - B\|^2_F = \sum_{ij} (A_{ij} - B_{ij})^2$. 
 
@@ -71,7 +73,9 @@ $$
 $$
 
 The update rule for this matrix is given by
-$$W_{ij} \leftarrow W_{ij} + \eta_{ij} (X H^T - W H H^T)_{ij}$$
+$$
+W_{ij} \leftarrow W_{ij} + \eta_{ij} (X H^T - W H H^T)_{ij}
+$$
 
 
 The NMF multiplicative rule by Lee and Seung uses following $\eta$
@@ -114,7 +118,8 @@ $$
 \mu_{ij} = \frac{H_{ij}}{(W^T W H)_{ij}}
 $$
 
-which gives the update rule as: 
+which gives the update rule as:
+
 $$
 H_{ij} \leftarrow H_{ij} \frac{(W^T X)_{ij}}{(W^T W H)_{ij}}
 $$
