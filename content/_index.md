@@ -59,7 +59,7 @@ sections:
   - block: accomplishments
     content:
       # Note: `&shy;` is used to add a 'soft' hyphen in a long heading.
-      title: 'Recent news'
+      title: 'Recent publication'
       subtitle:
       # Date format: https://docs.hugoblox.com/customization/#date-format
       date_format: Jan 2006
@@ -69,7 +69,7 @@ sections:
       #   Leave other parameters empty if not required.
       #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
       items:
-        - certificate_url: https://arxiv.org/pdf/2210.17376.pdf 
+        - certificate_url:  
           date_end: ''
           date_start: '2023-06-25'
           description: ''
@@ -77,7 +77,7 @@ sections:
           organization: ARES
           organization_url: https://www.coursera.org
           title: Modeling Explainability in Security Analytics for Interpretability, Trustworthiness, and Usability
-          url: ''
+          url: 'https://arxiv.org/pdf/2210.17376.pdf'
 
 
     design:
