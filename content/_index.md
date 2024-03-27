@@ -99,7 +99,7 @@ sections:
   #   design:
   #     columns: '2'
    - block: collection
-    id: posts2
+    id: publication
     content:
       title: Recent Publications
       subtitle: ''
