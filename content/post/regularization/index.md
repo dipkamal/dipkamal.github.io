@@ -73,10 +73,10 @@ Consider a squared error loss function for a network with two dimensional weight
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/l1.png" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="l1.png" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/l2.png" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="l2.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
