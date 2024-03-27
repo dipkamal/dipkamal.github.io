@@ -59,7 +59,7 @@ sections:
   - block: accomplishments
     content:
       # Note: `&shy;` is used to add a 'soft' hyphen in a long heading.
-      title: 'Recent publications'
+      title: 'Recent news'
       subtitle:
       # Date format: https://docs.hugoblox.com/customization/#date-format
       date_format: Jan 2006
@@ -69,14 +69,14 @@ sections:
       #   Leave other parameters empty if not required.
       #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
       items:
-        - certificate_url: 
+        - certificate_url: https://www.coursera.org
           date_end: ''
-          date_start: 'March 2023'
+          date_start: '2021-01-25'
           description: ''
-          icon: ARES
-          organization: ARES
-          organization_url: 
-          title: Modeling Explainability in Security Analytics for Interpretability, Trustworthiness, and Usability
+          icon: coursera
+          organization: Coursera
+          organization_url: https://www.coursera.org
+          title: Neural Networks and Deep Learning
           url: ''
         - certificate_url: https://www.edx.org
           date_end: ''
@@ -85,7 +85,7 @@ sections:
           icon: edx
           organization: edX
           organization_url: https://www.edx.org
-          title: Looking Beyond IoCs Automatically Extracting Attack Patterns from External CTI
+          title: Blockchain Fundamentals
           url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
         - certificate_url: https://www.datacamp.com
           date_end: '2020-12-21'
