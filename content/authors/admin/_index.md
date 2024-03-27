@@ -11,21 +11,20 @@ last_name: Bhusal
 
 # Status emoji
 status:
-  icon: 🎓
+  icon: 
 
 # Is this the primary user of the site?
 superuser: true
 
 # Role/position/tagline
-role: PhD Student, RIT
+role: PhD Student
 
 # Organizations/Affiliations to show in About widget
 organizations:
-  - name: Rochester Institute of Technology
-    url: 
+  - name: RIT
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include explainable machine learning and adversarial machine learning.
+bio: 
 
 # Interests to show in About widget
 interests:
@@ -36,55 +35,13 @@ interests:
 # Education to show in About widget
 education:
   courses:
-    - course: PhD in Artificial Intelligence
-      institution: Stanford University
-      year: 2012
-    - course: MEng in Artificial Intelligence
-      institution: Massachusetts Institute of Technology
-      year: 2009
-    - course: BSc in Artificial Intelligence
-      institution: Massachusetts Institute of Technology
-      year: 2008
+    - course: PhD in Computing and Information Science
+      institution: Rochester Institute of Technology
+      year: 2026
+    - course: MSc. in Information Engineering
+      institution: Tribhuvan University
+      year: 2021
 
-# Skills
-# For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
-skills:
-  - name: Technical
-    items:
-      - name: Python
-        description: ''
-        percent: 80
-        icon: python
-        icon_pack: fab
-      - name: Data Science
-        description: ''
-        percent: 100
-        icon: chart-line
-        icon_pack: fas
-      - name: SQL
-        description: ''
-        percent: 40
-        icon: database
-        icon_pack: fas
-  - name: Hobbies
-    color: '#eeac02'
-    color_border: '#f0bf23'
-    items:
-      - name: Hiking
-        description: ''
-        percent: 60
-        icon: person-hiking
-        icon_pack: fas
-      - name: Cats
-        description: ''
-        percent: 100
-        icon: cat
-        icon_pack: fas
-      - name: Photography
-        description: ''
-        percent: 80
-        icon: camera-retro
-        icon_pack: fas
 
 # Social/Academic Networking
 # For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
@@ -120,5 +77,11 @@ social:
 highlight_name: true
 ---
 
-Chien Shiung Wu is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+Hello! I am Dipkamal Bhusal.
+
+I am a third-year Computer Science Ph.D. student at Golisano College of Computing and Information Sciences, Rochester Institute of Technology (RIT), working with [Dr. Nidhi Rastogi](https://nidhirastogi.github.io/). My primary research focuses on the intersection of explainable machine learning and adversarial machine learning, with goals of understanding the limitations of existing explanation methods for deep learning, applying explanation methods to explain and detect adversarial attacks, and designing new faithful and reliable explanation techniques. Model explainability is crucial in critical applications where we need trust and reliability over decisions from deep learning models. Concise, stable, and faithful explanation methods will assist decision-making in various applications. I completed my Masters in Information Engineering at IOE, Pulchowk campus, Nepal, in 2021 with a core focus on machine learning for medical diagnosis. 
+
+After graduating as an electronics and communication engineer in 2016, I co-founded two startups. With Paaila Technology and Naulo robotics restaurant, our team of Pulchowk College graduates demonstrated the possibility of technological advancement in fields like robotics and AI in Nepal. I often represented my company in exhibitions and events for talk shows and presentations. I delivered guest lectures to students of various colleges on themes of AI and startups. You can read more about my past involvement [here](https://dipkamal.github.io/blog/2022/paaila/).
+
+<b>Research Interest:</b> Deep Learning, Explainable Machine Learning, Adversarial Machine Learning, ML for healthcare
 {style="text-align: justify;"}
