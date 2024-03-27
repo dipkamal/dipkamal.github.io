@@ -71,10 +71,10 @@ sections:
       items:
         - certificate_url: 
           date_end: ''
-          date_start: '2023-06-6'
+          date_start: 'March 2023'
           description: ''
           icon: ARES
-          organization: Coursera
+          organization: ARES
           organization_url: 
           title: Modeling Explainability in Security Analytics for Interpretability, Trustworthiness, and Usability
           url: ''
@@ -85,7 +85,7 @@ sections:
           icon: edx
           organization: edX
           organization_url: https://www.edx.org
-          title: Blockchain Fundamentals
+          title: Looking Beyond IoCs Automatically Extracting Attack Patterns from External CTI
           url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
         - certificate_url: https://www.datacamp.com
           date_end: '2020-12-21'
