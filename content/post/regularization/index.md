@@ -13,15 +13,15 @@ Our training optimization algorithm which only consisted of loss term, is now a 
 
 
 <b>Regularization by introducing a parameter norm penalty to model objective:</b>
-Let us consider J be the objective function of a model (loss),  {{< math >}}$\theta${{< /math >}} be its parameters, X and y be the input-output pair, $\Omega (\theta)$ be the parameter norm introduced as penalty then our modified regularized objective function is given by: 
+Let us consider J be the objective function of a model (loss),  {{< math >}}$\theta${{< /math >}} be its parameters, X and y be the input-output pair, {{< math >}} $\Omega (\theta)$ {{< /math >}} be the parameter norm introduced as penalty then our modified regularized objective function is given by: 
 
-\begin{equation}
-\label{eq:optimization}
+{{< math >}}
+$$
 J'(\theta; X,y)=J(\theta; X,y)+ \alpha \Omega (\theta)
-\end{equation}
+$$
+{{< /math >}}
 
-
-where , $$\alpha$$ is the regularization parameter [0,$$\infty$$) and controls the strength of regularization. So, now when we minimize our regularized objective function, both original objective function and the regularization norm is minimized. 
+where , $\alpha$ is the regularization parameter [0,{{< math >}}$\infty${{< /math >}}) and controls the strength of regularization. So, now when we minimize our regularized objective function, both original objective function and the regularization norm is minimized. 
 
 **L2 regularization**
 
@@ -29,42 +29,47 @@ In L2  regularization, model complexity can be viewed as a function of the weigh
 
 L2 regularization is also known as ridge regression or Tikhonov regularization or weight decay. It uses the following norm:
 
-\begin{equation}
-\label{eq:l2}
+{{< math >}}
+$$
 \Omega (\theta)=(1/2)*||w||_2^2 
-\end{equation}
+$$
+{{< /math >}}
 
 Which is the sum of square of the weights. The weight with high values have huge effect on model complexity and wieght with close to zero value have little effect. Hence, the goal of this regularization is to drive the weights of the network closer to zero. We will see how. The regularized loss function is now,
 
-\begin{equation}
-\label{eq:l2loss}
+{{< math >}}
+$$
 J’(\theta; X,y)=J(\theta; X,y)+\alpha \Omega (\theta)
 =J(\theta; X,y)+\alpha/2 \Omega * ||w||_2^2
-\end{equation}
+$$
+{{< /math >}}
 
 The gradient of this function with respect to weight, w is given by, 
 
-\begin{equation}
-\label{eq:gradl2loss}
+{{< math >}}
+$$
 ∇_wJ’=\alpha w+∇_w[J(\theta; X,y)]
-\end{equation}
+$$
+{{< /math >}}
 
 Then at each step, weight will be updated as: 
 
-\begin{equation}
-\label{eq:weightup}
+{{< math >}}
+$$
 w=w-ɛ*[\alpha w+∇_w[J(\theta; X,y)]]
-\end{equation}
+$$
+{{< /math >}}
 
-\begin{equation}
-\label{eq:weightupdatel2}
+
+{{< math >}}
+$$
 w=w(1-\epsilon * \alpha)-\epsilon*\nabla_wJ(\theta;X,y)
-\end{equation}
-
+$$
+{{< /math >}}
 
 So, at every iteration, the weight is shrinked by a constant factor. 
 
-Consider a squared error loss function for a network with two dimensional weight vectors w; w1 and w2. The regularization term is constrained by the value of $$\alpha$$. So, $$w1^2+w2^2$$ can be expressed as a circle with radius $$\alpha$$. The squared loss is plotted as a contour plot where the center is the minimal loss without regularization. In a sense, the unregularized contour is overfitting the training data. 
+Consider a squared error loss function for a network with two dimensional weight vectors w; w1 and w2. The regularization term is constrained by the value of {{< math >}}$\alpha${{< /math >}}. So, {{< math >}}$w1^2+w2^2${{< /math >}} can be expressed as a circle with radius {{< math >}}$\alpha${{< /math >}}. The squared loss is plotted as a contour plot where the center is the minimal loss without regularization. In a sense, the unregularized contour is overfitting the training data. 
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -77,38 +82,50 @@ Consider a squared error loss function for a network with two dimensional weight
 <div class="caption">
     A plot on loss contour with l1 and l2 regularization. We are assuming loss to be mean squared loss hence an elliptic shape.
 </div>
+
 So, the goal of solving the objective function with L2 regularization is finding a point where the loss of the contour is minimum and it lies within the circle of regularizer. In the figure, w* is the point. This is not equal to zero but close to it. If we increase the size of 𝝰, the size of the circle also increases and the model will be regularized more. 
 
 <b>L1 regularization:</b>  L1 regularization views the complexity of a model as a function of the total number of features with nonzero weights. L1 regularization, also called Lasso regression, uses the following parameter norm as penalty.
 
+{{< math >}}
 $$
 𝛀(Θ)=||w||_1
 $$
+{{< /math >}}
+
 Which is the sum of absolute values of the weight. The goal of this regularization is to drive the weights of the network to zero. Some parameters of the network will be zero hence, it produces a sparse solution also called sparse parametrization. Sparsity property of L1 regularization is often used as a feature selection mechanism. 
 
 The regularized objective function is hence, 
 
+{{< math >}}
 $$
 J’(\theta; X,y)=J(\theta; X,y)+\alpha \Omega (\theta)
 =J(\theta; X,y)+\alpha/2 \Omega * ||w||_1^1
 $$
+{{< /math >}}
 
 Taking the grad of loss with respect to weights, 
+{{< math >}}
 $$
 \label{eq:gradl1loss}
 ∇_wJ’=\alpha * sign(w)+∇_w[J(\theta; X,y)]
 $$
+{{< /math >}}
 
 Then at each step, weight will be updated as: 
 
+{{< math >}}
 $$
 \label{eq:weightupdateL1}
 w=w-ɛ*[\alpha * sign(w)+∇_w[J(\theta; X,y)]]
 $$
+{{< /math >}}
 
+{{< math >}}
 $$
 w=w-ɛ*\alpha * sign(w)-∇_w[J(\theta; X,y)]
 $$
+{{< /math >}}
 
 So, at every iteration, the weight is subracted by a factor. L1 regularizer also finds the point with minimum loss on the contour of the original loss that lies within the unit norm ball of an L1 norm which is a square (diamond) in this case because of 4 different lines we obtain from the regularizer equation. 
 
