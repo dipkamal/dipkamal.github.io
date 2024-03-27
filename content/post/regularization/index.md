@@ -21,7 +21,7 @@ J'(\theta; X,y)=J(\theta; X,y)+ \alpha \Omega (\theta)
 $$
 {{< /math >}}
 
-where , $\alpha$ is the regularization parameter [0,{{< math >}}$\infty${{< /math >}}) and controls the strength of regularization. So, now when we minimize our regularized objective function, both original objective function and the regularization norm is minimized. 
+where , $\alpha$ is the regularization parameter [0,$\infty$) and controls the strength of regularization. So, now when we minimize our regularized objective function, both original objective function and the regularization norm is minimized. 
 
 **L2 regularization**
 
@@ -48,7 +48,7 @@ The gradient of this function with respect to weight, w is given by,
 
 {{< math >}}
 $$
-∇_wJ’=\alpha w+∇_w[J(\theta; X,y)]
+\nabla_wJ’=\alpha w+\nabla_w[J(\theta; X,y)]
 $$
 {{< /math >}}
 
@@ -56,7 +56,7 @@ Then at each step, weight will be updated as:
 
 {{< math >}}
 $$
-w=w-ɛ*[\alpha w+∇_w[J(\theta; X,y)]]
+w=w-\epsilon*[\alpha w+\nabla_w[J(\theta; X,y)]]
 $$
 {{< /math >}}
 
@@ -108,7 +108,7 @@ Taking the grad of loss with respect to weights,
 {{< math >}}
 $$
 \label{eq:gradl1loss}
-∇_wJ’=\alpha * sign(w)+∇_w[J(\theta; X,y)]
+\nabla_wJ’=\alpha * sign(w)+\nabla_w[J(\theta; X,y)]
 $$
 {{< /math >}}
 
@@ -117,30 +117,23 @@ Then at each step, weight will be updated as:
 {{< math >}}
 $$
 \label{eq:weightupdateL1}
-w=w-ɛ*[\alpha * sign(w)+∇_w[J(\theta; X,y)]]
+w=w-\epsilon*[\alpha * sign(w)+\nabla_w[J(\theta; X,y)]]
 $$
 {{< /math >}}
 
 {{< math >}}
 $$
-w=w-ɛ*\alpha * sign(w)-∇_w[J(\theta; X,y)]
+w=w-\epsilon*\alpha * sign(w)-\nabla_w[J(\theta; X,y)]
 $$
 {{< /math >}}
 
 So, at every iteration, the weight is subracted by a factor. L1 regularizer also finds the point with minimum loss on the contour of the original loss that lies within the unit norm ball of an L1 norm which is a square (diamond) in this case because of 4 different lines we obtain from the regularizer equation. 
-
-    Regularization with L2 is equivalent to MAP Bayesian inference
-    with a Gaussian prior on weights. 
-    
-    L1 regularization is equivalent to prior isotropic Laplace distribution. 
-
-    L2 regularization is strictly convex and is differentiable at all points. 
-    
-    L1 provides dense solutions using weight on all features. 
-    
-    L1 regularization is not strictly convex and non-differentiable at 0. 
-    
-    L1 produces sparse solutions.
+- Regularization with L2 is equivalent to MAP Bayesian inference with a Gaussian prior on weights. 
+- L1 regularization is equivalent to prior isotropic Laplace distribution. 
+- L2 regularization is strictly convex and is differentiable at all points. 
+- L1 provides dense solutions using weight on all features. 
+- L1 regularization is not strictly convex and non-differentiable at 0. 
+- L1 produces sparse solutions.
 
 <b>L0 regularization:</b> L0 regularization also introduces sparsity to the model but it introduces it more aggressively than L1. It does not shrink feature weights but remove features with constraint being the number of parameters less than some threshold count. L0 regularization is neither convex nor differentiable. It is computationally hard to optimize and likely intractable. Approximation of L0 regularization is topic of current research.
 
