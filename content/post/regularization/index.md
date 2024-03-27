@@ -71,17 +71,10 @@ So, at every iteration, the weight is shrinked by a constant factor.
 
 Consider a squared error loss function for a network with two dimensional weight vectors w; w1 and w2. The regularization term is constrained by the value of {{< math >}}$\alpha${{< /math >}}. So, {{< math >}}$w1^2+w2^2${{< /math >}} can be expressed as a circle with radius {{< math >}}$\alpha${{< /math >}}. The squared loss is plotted as a contour plot where the center is the minimal loss without regularization. In a sense, the unregularized contour is overfitting the training data. 
 
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="l1.png" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="l2.png" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    A plot on loss contour with l1 and l2 regularization. We are assuming loss to be mean squared loss hence an elliptic shape.
-</div>
+<img src="l1.png"
+     alt="L1 regularization"
+     style="float: left; margin-right: 10px;" />
+
 
 So, the goal of solving the objective function with L2 regularization is finding a point where the loss of the contour is minimum and it lies within the circle of regularizer. In the figure, w* is the point. This is not equal to zero but close to it. If we increase the size of 𝝰, the size of the circle also increases and the model will be regularized more. 
 
