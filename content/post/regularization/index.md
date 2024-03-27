@@ -6,27 +6,14 @@ summary: Short notes on regularization for machine learning
 
 
 Regularization can be defined as the process of modifying a learning algorithm to reduce the generalization error i.e. error on unseen test data. Regularization is added to an algorithm so that the model does not overfit the training data. The goal is to increase the model bias and reduce variance. This will always hurt the training error. However, we compromise on the training error to get a better generalization on unseen test data.
-<div class="row mt-6">
-    <div class="col-sm mt-6 mt-md-0">
-        {% include figure.html path="featured.png" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    A simple plot on training loss vs validation loss.
-</div>
-Above figure shows a model in which training loss gradually decreases, but validation loss eventually goes up. In other words, this generalization curve shows that the model is overfitting to the data in the training set. So, instead of minimizing just the loss of the model, with
 
-    minimize(Loss(Data|Model Parameters)) 
-
-we will now minimize loss+complexity. 
-
-    minimize(Loss(Data|Model)) + complexity (model).
+Above figure shows a model in which training loss gradually decreases, but validation loss eventually goes up. In other words, this generalization curve shows that the model is overfitting to the data in the training set. So, instead of minimizing just the loss of the model, with minimize(Loss(Data|Model_Parameters)), we will now minimize loss+complexity i.e. minimize(Loss(Data|Model)) + complexity (model).
 
 Our training optimization algorithm which only consisted of loss term, is now a function of two terms: the (old) loss term, which measures how well the model fits the data, and the regularization term, which measures model complexity. Model complexity can be viewed as a function of weights of all the features in the model or the total number of non-zero weight features in the model. There are two methods to quantify these views.
 
 
 <b>Regularization by introducing a parameter norm penalty to model objective:</b>
-Let us consider J be the objective function of a model (loss), '$$ \theta $$' be its parameters, X and y be the input-output pair, $$\Omega (\theta)$$ be the parameter norm introduced as penalty then our modified regularized objective function is given by: 
+Let us consider J be the objective function of a model (loss),  {{< math >}}$\theta${{< /math >}}be its parameters, X and y be the input-output pair, $\Omega (\theta)$ be the parameter norm introduced as penalty then our modified regularized objective function is given by: 
 
 \begin{equation}
 \label{eq:optimization}
