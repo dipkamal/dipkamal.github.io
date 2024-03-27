@@ -74,10 +74,9 @@ By 2018, our team had expanded from 7 to 20 members. In addition to our focus on
 
 Initially, I began as a team member in research and development. However, as the company grew, I assumed the role of Managing Director. This transition prompted me to represent our company in national and international startup competitions, where I forged partnerships and collaborations. Our work at Naulo garnered attention from prominent news agencies such as AFP News, Al-Jazeera, and Bloomberg. We received several accolades, including Startup of the Year (2017), Most Creative Business (2018), and the National ICT Innovation Award (2019). I had the opportunity to participate in the global finals of the Creative Business Cup in Copenhagen, where I connected with international startups and mentors. 
 
-<img src="CBC.jpeg"
+<img src="CBC.JPG"
      alt="Representing Paaila Technology and Team Nepal at CBC Finals"
      style="float: center" />
-
 
 
 Despite our efforts to propel the company forward, we encountered numerous roadblocks. One significant challenge arose when our co-founders pursued higher studies in the United States, leaving only two of us in the company by 2020. Internal and financial issues further compounded our difficulties. However, the full account of these challenges will have to wait for another day.
