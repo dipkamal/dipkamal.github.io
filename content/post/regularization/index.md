@@ -76,6 +76,10 @@ Consider a squared error loss function for a network with two dimensional weight
      style="float: left; margin-right: 10px;" />
 
 
+<img src="l2.png"
+     alt="L2 regularization"
+     style="float: right; margin-left: 10px;" />
+
 So, the goal of solving the objective function with L2 regularization is finding a point where the loss of the contour is minimum and it lies within the circle of regularizer. In the figure, w* is the point. This is not equal to zero but close to it. If we increase the size of 𝝰, the size of the circle also increases and the model will be regularized more. 
 
 <b>L1 regularization:</b>  L1 regularization views the complexity of a model as a function of the total number of features with nonzero weights. L1 regularization, also called Lasso regression, uses the following parameter norm as penalty.
