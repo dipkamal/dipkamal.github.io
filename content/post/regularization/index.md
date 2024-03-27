@@ -90,7 +90,7 @@ $$
 
 <img src="l1.png"
      alt="L1 regularization"
-     style="float: center; margin-right: 10px;" />
+     style="float: left; margin-right: 10px;" />
 
 
 
