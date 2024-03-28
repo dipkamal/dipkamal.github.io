@@ -1,6 +1,8 @@
 ---
 title: Journey with my startup
 subtitle: A brief story of my time with Paaila Technology
+summary: A brief story of my time with Paaila Technology
+
 
 # Summary for listings and search engines
 summary:
