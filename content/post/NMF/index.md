@@ -2,7 +2,7 @@
 title: Understanding Non-Negative Matrix Factorization
 subtitle: A brief overview of matrix factorization method called NMF
 date: '2024-02-27'
-summary: A brief overview of matrix factorization method called NMF
+math: true
 ---
 
 Matrix factorization is a powerful technique used in various fields such as machine learning, data analysis, and recommender systems. At its core, matrix factorization involves decomposing a matrix into multiple matrices, typically of lower rank, in order to extract meaningful patterns and latent features. By representing the original matrix in terms of its constituent parts, matrix factorization enables dimensionality reduction, noise reduction, and capturing underlying structure within the data.

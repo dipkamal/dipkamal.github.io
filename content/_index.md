@@ -88,15 +88,8 @@ sections:
           organization_url: https://www.coursera.org
           title: Looking Beyond IoCs Automatically Extracting Attack Patterns from External CTI
           url: 'https://arxiv.org/pdf/2211.01753.pdf'
-         - certificate_url:  
-          date_end: ''
-          date_start: '2022-07-25'
-          description: ''
-          icon: 
-          organization: arXiv
-          organization_url: https://www.coursera.org
-          title: CyNER A Python Library for Cybersecurity Named Entity Recognition
-          url: 'https://arxiv.org/pdf/2204.05754.pdf'
+
+
     design:
       columns: '2'
   - block: collection
