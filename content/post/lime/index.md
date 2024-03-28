@@ -41,9 +41,10 @@ While LIME flexes its muscles across tabular, text, and image datasets, it comes
 
 SHAP, standing for SHapley Additive exPlanations, is a method for explaning machine learning models, built on the mathematical concept of Shapley values from cooperative game theory.
 
-<b>What is a Shapeley value?</b>Shapley value is the average marginal contribution of a feature across all possible coalitions or combinations of features used for making a prediction. The interpretation of a Shapley value for feature $$j$$ is "what value did the $$j$$-th feature contributed to the prediction of the particular instance compared to the average prediction for the dataset". It is the average contribution of a feature value to the classifier prediction in different coalitions of features and not the difference in prediction when a feature is removed from the model.
+<b>What is a Shapeley value?</b>Shapley value is the average marginal contribution of a feature across all possible coalitions or combinations of features used for making a prediction. The interpretation of a Shapley value for feature $j$ is "what value did the $j$-th feature contributed to the prediction of the particular instance compared to the average prediction for the dataset". It is the average contribution of a feature value to the classifier prediction in different coalitions of features and not the difference in prediction when a feature is removed from the model.
 
 
 
 <b>Reference papers:</b>
 - [LIME](https://dl.acm.org/doi/pdf/10.1145/2939672.2939778?)
+- [SHAP](https://proceedings.neurips.cc/paper/2017/file/8a20a8621978632d76c43dfd28b67767-Paper.pdf)
