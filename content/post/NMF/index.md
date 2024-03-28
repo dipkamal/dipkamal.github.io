@@ -82,11 +82,12 @@ $$
 \eta_{ij} = \frac{W_{ij}}{(W H H^T)_{ij}}
 $$
 
-This modifies the update rule as: 
+This modifies the update rule as:
+{{< math >}}
 $$
 W_{ij} \leftarrow W_{ij} \frac{(X H^T)_{ij}}{(W H H^T)_{ij}}
 $$
-
+{{< /math >}}
 
 Similar to $H$, we can derive the update rule by keeping $W$ fixed as: 
 
@@ -117,11 +118,11 @@ $$
 $$
 
 which gives the update rule as:
-
+{{< math >}}
 $$
 H_{ij} \leftarrow H_{ij} \frac{(W^T X)_{ij}}{(W^T W H)_{ij}}
 $$
-
+{{< /math >}}
 
 <b>Reference papers:</b>
 - [Algorithms for NMF](https://proceedings.neurips.cc/paper_files/paper/2000/file/f9d1152547c0bde01830b7e8bd60024c-Paper.pdf)
