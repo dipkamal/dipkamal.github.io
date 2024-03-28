@@ -109,7 +109,7 @@ $$
 The gradient descent update is given by:
 
 $$
-\mu_{ij} (W^T X - W^T W H)_{ij}
+H_{ij} \leftarrow H_{ij} + \mu_{ij} (W^T X - W^T W H)_{ij}
 $$
 
 with $\mu$ picked as: 
@@ -123,6 +123,8 @@ $$
 H_{ij} \leftarrow H_{ij} \frac{(W^T X)_{ij}}{(W^T W H)_{ij}}
 $$
 {{< /math >}}
+
+Next, we will try to prove the convergence of this update rule, to be published soon.
 
 <b>Reference papers:</b>
 - [Algorithms for NMF](https://proceedings.neurips.cc/paper_files/paper/2000/file/f9d1152547c0bde01830b7e8bd60024c-Paper.pdf)
