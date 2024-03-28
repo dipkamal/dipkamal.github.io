@@ -124,7 +124,22 @@ H_{ij} \leftarrow H_{ij} \frac{(W^T X)_{ij}}{(W^T W H)_{ij}}
 $$
 {{< /math >}}
 
-Next, we will try to prove the convergence of this update rule, to be published soon.
+
+**Is NMF better than other factorization methods?**
+Non-negative Matrix Factorization (NMF) is often preferred over other matrix factorization techniques, if the original data matrix has non-negative values, for following reasons:
+
+- ***Parts-Based Representation***: NMF provides a parts-based representation of data, where each basis vector represents a combination of non-negative parts. This property is particularly useful in fields such as image processing and text mining, where data naturally exhibits non-negativity.
+
+- ***Interpretability***: The non-negativity constraint in NMF often leads to more interpretable factors, which can be easier to understand and analyze, especially in domains where interpretability is crucial.
+
+- ***Dimensionality Reduction***: NMF naturally performs dimensionality reduction by capturing the most important features of the data. This can help in reducing computational complexity and overfitting, particularly in high-dimensional datasets.
+
+- ***Sparsity***: NMF tends to produce sparse representations, where only a few components are active for each sample. This sparsity can lead to more efficient storage and computation.
+
+
+It was shown in this [work](https://www.nature.com/articles/44565) that out of VQ, PCA and NMF, NMF is only abel to extract localized features in images that correspond to the intuitive notion of parts of images. Of course, the differences between PCA, VQ and NMF arise from different
+constraints imposed on the matrix factors W and H. However, if your data matrix is non-negative, always go for NMF for factorization.
+
 
 <b>Reference papers:</b>
 - [Algorithms for NMF](https://proceedings.neurips.cc/paper_files/paper/2000/file/f9d1152547c0bde01830b7e8bd60024c-Paper.pdf)
