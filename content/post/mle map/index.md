@@ -1,6 +1,6 @@
 ---
 title: MLE and MAP
-date: '2022-02013'
+date: '2022-02-013'
 summary: Notes on MLE and MAP
 ---
 
