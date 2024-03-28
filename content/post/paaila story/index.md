@@ -1,9 +1,7 @@
 ---
 title: Journey with my startup
 subtitle: A brief story of my time with Paaila Technology
-
-# Summary for listings and search engines
-summary:
+summary: A brief story of my time with Paaila Technology
 
 # Link this post with a project
 projects: []
@@ -12,15 +10,7 @@ projects: []
 date: '2022-03-13T00:00:00Z'
 
 # Date updated
-lastmod: '2022-12-13T00:00:00Z'
-
-# Is this an unpublished draft?
-draft: 
-
-# Show this page in the Featured widget?
-featured: 
-
-# Featured image
+lastmod: ''
 # Place an image named `featured.jpg/png` in this page's folder and customize its options here.
 image:
   caption:

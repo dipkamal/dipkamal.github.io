@@ -1,6 +1,6 @@
 ---
 title: Understanding Attention and Transformer
-date: '2022-08-13'
+date: '2022-02-01'
 summary: Notes on attention and transformer 
 ---
 
