@@ -46,7 +46,6 @@ So, for $1000$ dimensional datapoints, we will need to cover $99.54%$ of the dat
 
 
 
-
-<b>Reference papers:</b>
-- [LIME](https://dl.acm.org/doi/pdf/10.1145/2939672.2939778?)
-- [SHAP](https://proceedings.neurips.cc/paper/2017/file/8a20a8621978632d76c43dfd28b67767-Paper.pdf)
+<b>References</b>
+- [Machine Learning: A Probabilistic Perspective](http://noiselab.ucsd.edu/ECE228/Murphy_Machine_Learning.pdf) 
+- [Cornell Class CS4780 by Prof. Kilian Weinberger](https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote02_kNN.html)
