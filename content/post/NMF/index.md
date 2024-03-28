@@ -43,7 +43,7 @@ where, $\| A - B\|^2_F = \sum_{ij} (A_{ij} - B_{ij})^2$.
 Hence, our optimization problem for NMF can be defined as: 
 {{< math >}}
 $$
-W^*, H^*  = \argmin_{W\geq 0,H \geq 0} \frac{1}{2} \| X - WH \|^2_F
+W^*, H^*  = argmin_{W\geq 0,H \geq 0} \frac{1}{2} \| X - WH \|^2_F
 $$
 {{< /math >}}
 
