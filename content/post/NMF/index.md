@@ -32,7 +32,7 @@ The above equation for NMF can be rewritten column wise as $x \approx Wh$, where
 
 **Solving the optimization**
 
-To sole this optimization, we need to define a cost function that we can minimize using optimization technique like gradient descent. One of the most common cost function is Frobenius norm, where the distance between the original data vector and the approximation is computed as the Frobenius norm between the matrices. 
+To solve this optimization, we need to define a cost function that we can minimize using optimization technique like gradient descent. One of the most common cost function is Frobenius norm, where the distance between the original data vector and the approximation is computed as the Frobenius norm between the matrices. 
 
 $$
 D(X \mid WH) = \| X - WH \|^2_F
@@ -41,11 +41,11 @@ $$
 where, $\| A - B\|^2_F = \sum_{ij} (A_{ij} - B_{ij})^2$. 
 
 Hence, our optimization problem for NMF can be defined as: 
-
+{{< math >}}
 $$
-\{W^*, H^* \} = \argmin_{W\geq 0,H \geq 0} \frac{1}{2} \| X - WH \|^2_F
+W^*, H^*  = \argmin_{W\geq 0,H \geq 0} \frac{1}{2} \| X - WH \|^2_F
 $$
-
+{{< /math >}}
 
 We cannot minimize this cost function jointly with respect to both $W$ and $H$, hence, an alternating technique is used. Minimization is performed for each varirable separately at each iteration, keeping the other one fixed.
 
