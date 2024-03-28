@@ -24,7 +24,7 @@ Imagine models that, by their very nature, are interpretable. Decision trees and
 
 **The Game Plan:** Unveiling how a model makes decision
 
-Explainability methods aim to inspect a model's predictions after it's been trained (called, post-hoc methods in literature). You use such methods to see how a machine learning model made a specific decision on a given instance or a set of it.
+Explainability methods aim to inspect a model's predictions after it's been trained (called, post-hoc methods in literature). You use such methods to see how a machine learning model made a specific decision on a given instance or a set of it. In the figure below, we take an example of bird classification and observe how the model made decision on the given test image by using a popular computer vision techniques called heatmaps. There are different ways of generating such heatmaps. We demonstrate four different methods each showing that where the model might have paid attention to in the image for prediction.
 
 
 <img src="xaiexample.png"
@@ -33,13 +33,9 @@ Explainability methods aim to inspect a model's predictions after it's been trai
 
 
  XAI methods can be classified into numerous categories based on the nature of explanations
-
-    - Local vs. Global: Does the method explain model prediction on a single instance (local) 
-    or explain the overall behavior of the model on a similar dataset (global)?
-    - Model agnostic or model specific: Does the XAI method depend on specific 
-    network architecture or work on all types of networks?
-    -Types of explanation: Are explanations provided in terms of feature attribution, rules, 
-    or counterfactual examples?
+ - ***Local vs. Global:*** Does the method explain model prediction on a single instance (local) or explain the overall behavior of the model on a similar dataset (global)?
+ - ***Model agnostic or model specific:*** Does the XAI method depend on specific network architecture or work on all types of networks?
+ - ***Types of explanation:*** Are explanations provided in terms of feature attribution, rules, or counterfactual examples?
 
 ### Feature Attribution Methods
 
@@ -47,10 +43,10 @@ Explainability methods aim to inspect a model's predictions after it's been trai
 
 **How?** These methods assign scores to each feature, showing how much they influence a model's prediction. Think of it as giving credit where it's due.
 
-Feature attribution methods interpret the impact of individual features (input variables) on the model's predictions. They assign a score to each feature that quantifies its importance in the model's prediction for the given example, and are widely used in research and industry. Given a trained model $$f(.)$$ and a test instance $$x\in R^d$$, a feature attribution-based explanation method $$\phi$$ returns a vector $$\phi(x) \in R^d$$ that provides the attribution vector (importance vector) of the feature. Other explanation methods include: rule-based explanations like ANCHOR that provides a decision rule on a combination of input features and are commonly used in tabular data. Counterfactual-based explanations (e.g., DeepAID) provide the closest instance of opposite prediction, such that their difference in feature provides explanations for the model prediction. A different explanation direction explains model prediction in terms of high-level human concepts. Instead of relying on input features, these methods, like TCAV, inspect if the model prediction was based on high-level human concepts. For example, to classify a zebra, were striped patterns used as the classification concept? We will come back to this topic later. 
+Feature attribution methods interpret the impact of individual features (input variables) on the model's predictions. They assign a score to each feature that quantifies its importance in the model's prediction for the given example, and are widely used in research and industry. Given a trained model $f(.)$ and a test instance $x\in R^d$, a feature attribution-based explanation method $\phi$ returns a vector $\phi(x) \in R^d$ that provides the attribution vector (importance vector) of the feature. Other explanation methods include: rule-based explanations like ANCHOR that provides a decision rule on a combination of input features and are commonly used in tabular data. Counterfactual-based explanations (e.g., DeepAID) provide the closest instance of opposite prediction, such that their difference in feature provides explanations for the model prediction. A different explanation direction explains model prediction in terms of high-level human concepts. Instead of relying on input features, these methods, like TCAV, inspect if the model prediction was based on high-level human concepts. For example, to classify a zebra, were striped patterns used as the classification concept? We will come back to this topic later. 
 
 
-Let's review some existing methods: 
+Let's review some existing feature attribution methods: 
 
 #### LIME and LEMNA: Shining a Light Locally
 
@@ -58,7 +54,7 @@ Let's review some existing methods:
 
 **How?** Imagine your model as a chef creating a secret recipe. LIME (Local Interpretable Model-agnostic Explanation) and LEMNA (Local Explanation Methods using Nonlinear Approximation) play the role of tasters, altering ingredients to understand the chef's thought process. Let me rephrase in technical terms: LIME and LEMNA generates local explanations for a model's predictions by perturbing input instances and observing the changes in the model's predictions. LIME creates an interpretable surrogate model through linear regression. It perturbs a test instance and generates new data samples to train the surrogate model. The weights of this model explain the predictions, with higher positive weights indicating the features that contribute the most. LEMNA uses a mixture regression model as surrogate model with a fused lasso penalty to account for feature dependencies. 
  
-**Pitfalls:** LIME's assumptions on feature independence might lead to unreliable insights.  LIME's explanations are susceptible to manipulation. LEMNA may not perform as effectively as LIME in various applications. Both methods are suitable for tabular data and not prefered for raw datasets like images and text.
+**Pitfalls:** LIME's assumptions on feature independence might lead to unreliable insights.  Their explanations are also susceptible to manipulation. LEMNA may not perform as effectively as LIME in various applications. Both methods are suitable for tabular data and not prefered for raw datasets like images and text.
 
 #### SHAP: Playing the Fairness Game
 
@@ -66,7 +62,7 @@ Let's review some existing methods:
 
 **How?** Picture your model as a team. SHAP values use game theory to ensure each player (feature) gets a fair share of the victory. It considers all possible feature combinations and calculate the average contribution of each feature to the model's output. Like LIME, SHAP generates new samples around a given instance, obtains predictions from the black box model, and trains an interpretable linear model on the dataset. However, unlike LIME, SHAP assigns weights to the new instances based on the weight a coalition would receive in the Shapley value estimation rather than their proximity to the original sample. 
 
-**Pitfalls:** SHAP might be slower than LIME, but the robustness of SHAP shines through, making it consistent across different runs, but it can be vulnerable to data manipulations.
+**Pitfalls:** SHAP might be slower than LIME, but the robustness of SHAP shines through, making it consistent across different runs, but it can also be vulnerable to data manipulations.
 
 ### Gradients: Navigating the Gradients
 
@@ -132,7 +128,7 @@ CRAFT also uses matrix factorization to identify concepts. However, in addition 
 
 ## Wrapping It Up
 
-Explainable AI is crucial for trusting and understanding the decisions made by complex models. Feature attribution and concept-based methods are some of the tools, each with its strengths and limitations. Understanding them (improving them) brings us one step closer to reliable and trustworthy AI.
+Explainable AI is crucial for trusting and understanding the decisions made by complex models. Feature attribution and concept-based methods are some of the tools, each with its strengths and limitations. Understanding them and improving them brings us one step closer to reliable and trustworthy AI.
 
 ### Tools you can use
 - [Captum](https://captum.ai/)
