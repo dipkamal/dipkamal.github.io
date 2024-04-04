@@ -6,7 +6,7 @@ summary: A brief overview of matrix factorization method called NMF
 math: true
 ---
 
-Matrix factorization is a powerful technique used in various fields such as machine learning, data analysis, and recommender systems. At its core, matrix factorization involves decomposing a matrix into multiple matrices, typically of lower rank, in order to extract meaningful patterns and latent features. By representing the original matrix in terms of its constituent parts, matrix factorization enables dimensionality reduction, noise reduction, and capturing underlying structure within the data.
+Matrix factorization is a powerful technique used in various fields such as machine learning, data analysis, and recommender systems. At its core, matrix factorization involves decomposing a matrix into multiple matrices, typically of lower rank, to extract meaningful patterns and latent features. By representing the original matrix in terms of its constituent parts, matrix factorization enables dimensionality reduction, noise reduction, and capturing underlying structure within the data.
 
 **What is NMF?**
 
@@ -24,30 +24,31 @@ Where:
 - $H \in R^{r \times N}_+$
 
 
-The $r$ is called the approximation rank. The key characteristic of NMF is that all elements of $W$ and $H$ are constrained to be non-negative, which allows for intuitive interpretation of the resulting factors as additive parts.
+The $r$ is called the approximation rank. The key characteristic of NMF is that all elements of $W$ and $H$ are constrained to be non-negative, which allows for an intuitive interpretation of the resulting factors as additive parts.
 
 ***What does this approximation signify?*** 
 
-The above equation for NMF can be rewritten column wise as $x \approx Wh$, where $x$ and $h$ are corresponding columns of the matrix $X$ and $H$. This indicates that, with this factorization, we are approximating the data vector $x$ by a linear combination of the columns in $W$ weighted by the components in $h$. This means that the matrix $W$ contains of new basis vector which is optimized for the linear approximation of the original data in $X$. Good approximation can be achieved if the basis vectors are able to discover underlying structure from the data. 
+The above equation for NMF can be rewritten column-wise as $x \approx Wh$, where $x$ and $h$ are corresponding columns of the matrix $X$ and $H$. This indicates that, with this factorization, we are approximating the data vector $x$ by a linear combination of the columns in $W$ weighted by the components in $h$. This means that the matrix $W$ contains of new basis vector which is optimized for the linear approximation of the original data in $X$. A good approximation can be achieved if the basis vectors can discover the underlying structure from the data. 
 
 **Solving the optimization**
 
-To solve this optimization, we need to define a cost function that we can minimize using optimization technique like gradient descent. One of the most common cost function is Frobenius norm, where the distance between the original data vector and the approximation is computed as the Frobenius norm between the matrices. 
+To solve this optimization, we need to define a cost function that we can minimize using optimization techniques like gradient descent. One of the most common cost functions is the Frobenius norm, where the distance between the original data vector and the approximation is computed as the Frobenius norm between the matrices. 
 
 $$
 D(X \mid WH) = \| X - WH \|^2_F
 $$
 
-where, $\| A - B\|^2_F = \sum_{ij} (A_{ij} - B_{ij})^2$. 
+where, $\| A - B\|^2_F = \sum_{ij} (A_{ij} - B_{ij})^2$. Frobenius norm is widely used as the approximation error because it allows the approximation noise to be Gaussian, which is considered reasonable in many practical situations. However, this is not the only approximation measure we can use. For example: Kullback-Leibler divergence is used for text mining applications, Itakura-Saito distance for music, and the earth mover’s distance for some computer vision tasks.
 
-Hence, our optimization problem for NMF can be defined as: 
+
+Our optimization problem for NMF can be defined as: 
 {{< math >}}
 $$
 W^*, H^*  = argmin_{W\geq 0,H \geq 0} \frac{1}{2} \| X - WH \|^2_F
 $$
 {{< /math >}}
 
-We cannot minimize this cost function jointly with respect to both $W$ and $H$, hence, an alternating technique is used. Minimization is performed for each varirable separately at each iteration, keeping the other one fixed.
+We cannot minimize this cost function jointly with respect to both $W$ and $H$, hence, an alternating technique is used. Minimization is performed for each variable separately at each iteration, keeping the other one fixed.
 
 
  Lets compute $\nabla_W \frac{1}{2} \| X - WH \|^2_F$ first and then $\nabla_H \frac{1}{2} \| X - WH \|^2_F$. We keep $H$ fixed to compute the update rule for $W$. 
@@ -76,7 +77,7 @@ W_{ij} \leftarrow W_{ij} + \eta_{ij} (X H^T - W H H^T)_{ij}
 $$
 
 
-The NMF multiplicative rule by Lee and Seung uses following $\eta$
+The NMF multiplicative rule by Lee and Seung uses the following $\eta$
 
 $$
 \eta_{ij} = \frac{W_{ij}}{(W H H^T)_{ij}}
@@ -126,7 +127,7 @@ $$
 
 
 **Is NMF better than other factorization methods?**
-Non-negative Matrix Factorization (NMF) is often preferred over other matrix factorization techniques, if the original data matrix has non-negative values, for following reasons:
+Non-negative Matrix Factorization (NMF) is often preferred over other matrix factorization techniques, if the original data matrix has non-negative values, for the following reasons:
 
 - ***Parts-Based Representation***: NMF provides a parts-based representation of data, where each basis vector represents a combination of non-negative parts. This property is particularly useful in fields such as image processing and text mining, where data naturally exhibits non-negativity.
 
@@ -137,12 +138,14 @@ Non-negative Matrix Factorization (NMF) is often preferred over other matrix fac
 - ***Sparsity***: NMF tends to produce sparse representations, where only a few components are active for each sample. This sparsity can lead to more efficient storage and computation.
 
 
-It was shown in this [work](https://www.nature.com/articles/44565) that out of VQ, PCA and NMF, NMF is only abel to extract localized features in images that correspond to the intuitive notion of parts of images. Of course, the differences between PCA, VQ and NMF arise from different
-constraints imposed on the matrix factors W and H. However, if your data matrix is non-negative, always go for NMF for factorization.
+It was shown in this [work](https://www.nature.com/articles/44565) that out of VQ, PCA, and NMF, NMF is only able to extract localized features in images that correspond to the intuitive notion of parts of images. Of course, the differences between PCA, VQ, and NMF arise from different constraints imposed on the matrix factors W and H. However, if your data matrix is non-negative, always go for NMF for factorization.
+
+**But**, there are some issues with NMF. NMF is NP-hard, and as discussed before, it can only be solved using an alternating optimization. NMF problem is also ill-posed. Given an NMF (W, H) of X, there usually exist equivalent other NMFs (W', H') with W'H' = W H, leading to different feature extraction. This problem is tackled using proper regularization terms in the objective function. The most popular ones is sparsity on the W and H. Similarly, the choice of the factorization or approximation rank (r), is tricky and needs trial and error. 
+
 
 
 <b>Reference papers:</b>
 - [Algorithms for NMF](https://proceedings.neurips.cc/paper_files/paper/2000/file/f9d1152547c0bde01830b7e8bd60024c-Paper.pdf)
 - [Learning the parts of objects by NMF](https://www.nature.com/articles/44565)
 - [Solving NMF](https://www.almoststochastic.com/2013/06/nonnegative-matrix-factorization.html)
-
+- [Why of NMF](https://arxiv.org/pdf/1401.5226.pdf)
