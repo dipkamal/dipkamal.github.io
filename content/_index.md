@@ -85,7 +85,7 @@ sections:
           description: ''
           icon: 
           organization: ARES
-          organization_url: 
+          organization_url: https://www.ares-conference.eu/
           title: Modeling Explainability in Security Analytics for Interpretability, Trustworthiness, and Usability
           url: 'https://arxiv.org/pdf/2210.17376.pdf'
         - certificate_url:  
@@ -94,7 +94,7 @@ sections:
           description: ''
           icon: 
           organization: RAID
-          organization_url: 
+          organization_url: https://raid2023.org/welcome.html
           title: Looking Beyond IoCs Automatically Extracting Attack Patterns from External CTI
           url: 'https://arxiv.org/pdf/2211.01753.pdf'
         - certificate_url:  
@@ -103,7 +103,7 @@ sections:
           description: ''
           icon: 
           organization: arXiv
-          organization_url: 
+          organization_url: https://arxiv.org/pdf/2204.05754.pdf
           title: CyNER A Python Library for Cybersecurity Named Entity Recognition
           url: 'https://arxiv.org/pdf/2204.05754.pdf'
 
