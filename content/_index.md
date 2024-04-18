@@ -75,9 +75,9 @@ sections:
           date_start: '2024-04-12'
           description: ''
           icon: 
-          organization: EuroS&P
+          organization: EuroSP
           organization_url: 
-          title: Attack Agnostic Unsupervised Adversarial Detection using Prediction & Attribution Sensitivity Analysis
+          title: Attack Agnostic Unsupervised Adversarial Detection using Prediction and Attribution Sensitivity Analysis
           url: 'https://arxiv.org/abs/2404.10789'
         - certificate_url:  
           date_end: ''
