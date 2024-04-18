@@ -72,6 +72,15 @@ sections:
       items:
         - certificate_url:  
           date_end: ''
+          date_start: '2024-04-01'
+          description: ''
+          icon: 
+          organization: EuroS&P
+          organization_url: https://eurosp2024.ieee-security.org/
+          title: Attack Agnostic Unsupervised Adversarial Detection using Prediction & Attribution Sensitivity Analysis
+          url: 'https://arxiv.org/abs/2404.10789'
+        - certificate_url:  
+          date_end: ''
           date_start: '2023-06-25'
           description: ''
           icon: 
