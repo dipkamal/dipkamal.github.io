@@ -70,15 +70,6 @@ sections:
       #   Leave other parameters empty if not required.
       #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
       items:
-      - certificate_url:  
-          date_end: ''
-          date_start: '2024-04-12'
-          description: ''
-          icon: 
-          organization: EuroSP
-          organization_url: 
-          title: Attack Agnostic Unsupervised Adversarial Detection using Prediction and Attribution Sensitivity Analysis
-          url: 'https://arxiv.org/abs/2404.10789'
         - certificate_url:  
           date_end: ''
           date_start: '2023-06-25'
