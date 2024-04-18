@@ -70,13 +70,22 @@ sections:
       #   Leave other parameters empty if not required.
       #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
       items:
+      - certificate_url:  
+          date_end: ''
+          date_start: '2024-04-12'
+          description: ''
+          icon: 
+          organization: EuroS&P
+          organization_url: 
+          title: PASA: Attack Agnostic Unsupervised Adversarial Detection using Prediction & Attribution Sensitivity Analysis
+          url: 'https://arxiv.org/abs/2404.10789'
         - certificate_url:  
           date_end: ''
           date_start: '2023-06-25'
           description: ''
           icon: 
           organization: ARES
-          organization_url: https://www.coursera.org
+          organization_url: 
           title: Modeling Explainability in Security Analytics for Interpretability, Trustworthiness, and Usability
           url: 'https://arxiv.org/pdf/2210.17376.pdf'
         - certificate_url:  
@@ -85,7 +94,7 @@ sections:
           description: ''
           icon: 
           organization: RAID
-          organization_url: https://www.coursera.org
+          organization_url: 
           title: Looking Beyond IoCs Automatically Extracting Attack Patterns from External CTI
           url: 'https://arxiv.org/pdf/2211.01753.pdf'
         - certificate_url:  
@@ -94,7 +103,7 @@ sections:
           description: ''
           icon: 
           organization: arXiv
-          organization_url: https://www.coursera.org
+          organization_url: 
           title: CyNER A Python Library for Cybersecurity Named Entity Recognition
           url: 'https://arxiv.org/pdf/2204.05754.pdf'
 
