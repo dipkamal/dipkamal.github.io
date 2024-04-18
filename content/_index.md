@@ -77,7 +77,7 @@ sections:
           icon: 
           organization: EuroS&P
           organization_url: 
-          title: PASA: Attack Agnostic Unsupervised Adversarial Detection using Prediction & Attribution Sensitivity Analysis
+          title: Attack Agnostic Unsupervised Adversarial Detection using Prediction & Attribution Sensitivity Analysis
           url: 'https://arxiv.org/abs/2404.10789'
         - certificate_url:  
           date_end: ''
