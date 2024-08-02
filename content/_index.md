@@ -79,6 +79,15 @@ sections:
           organization_url: https://eurosp2024.ieee-security.org/
           title: Attack Agnostic Unsupervised Adversarial Detection using Prediction & Attribution Sensitivity Analysis
           url: 'https://arxiv.org/abs/2404.10789'
+      - certificate_url:  
+          date_end: ''
+          date_start: '2024-06-01'
+          description: ''
+          icon: 
+          organization: GLSVLSI'24
+          organization_url: https://dl.acm.org/doi/proceedings/10.1145/3649476
+          title: Comprehensive Analysis of Consistency and Robustness of Machine Learning Models in Malware Detection
+          url: 'https://dl.acm.org/doi/abs/10.1145/3649476.3658725'
         - certificate_url:  
           date_end: ''
           date_start: '2023-06-25'
