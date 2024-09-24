@@ -72,7 +72,16 @@ sections:
       items:
         - certificate_url:  
           date_end: ''
-          date_start: '2024-04-01'
+          date_start: '2024-09-01'
+          description: ''
+          icon: 
+          organization: ACSAC
+          organization_url: https://www.acsac.org/
+          title: Benchmarking Large Language Models for Cybersecurity Advisory
+          url: 'https://arxiv.org/pdf/2405.20441'
+        - certificate_url:  
+          date_end: ''
+          date_start: '2024-07-01'
           description: ''
           icon: 
           organization: EuroS&P
