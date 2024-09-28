@@ -72,6 +72,15 @@ sections:
       items:
         - certificate_url:  
           date_end: ''
+          date_start: '2024-09-27'
+          description: ''
+          icon: 
+          organization: NeurIPS
+          organization_url: https://neurips.cc/Conferences/2024/CallForDatasetsBenchmarks
+          title: CTIBench Benchmark for Evaluating LLMs in Cyber Threat Intelligence (Spotlight Paper)
+          url: 'https://arxiv.org/pdf/2406.07599'
+        - certificate_url:  
+          date_end: ''
           date_start: '2024-09-01'
           description: ''
           icon: 
