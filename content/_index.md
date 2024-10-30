@@ -86,7 +86,7 @@ sections:
           icon: 
           organization: ACSAC
           organization_url: https://www.acsac.org/
-          title: Benchmarking Large Language Models for Cybersecurity Advisory
+          title: SECURE Benchmarking Large Language Models for Cybersecurity 
           url: 'https://arxiv.org/pdf/2405.20441'
         - certificate_url:  
           date_end: ''

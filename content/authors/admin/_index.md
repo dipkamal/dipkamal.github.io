@@ -74,8 +74,10 @@ social:
 highlight_name: true
 ---
 
-My name is Dipkamal Bhusal, and I am currently a fourth-year Computer Science Ph.D. student at Golisano College of Computing and Information Sciences, Rochester Institute of Technology (RIT). My research focuses on reliable deep learning, with a particular emphasis on explainable machine learning but I have also explored adversarial machine learning. Prior to my PhD, I obtained my Master's in Information Engineering at Tribhuvan University (Nepal) in 2021 with a core focus on machine learning for medical diagnosis. 
+My name is Dipkamal Bhusal, and I am currently a fourth-year Computer Science Ph.D. student at Golisano College of Computing and Information Sciences, Rochester Institute of Technology (RIT). My research focuses on reliable deep learning, with a particular emphasis on explainable machine learning.
 
-In 2016, after graduating as an electronics and communication engineer, I co-founded [Paaila Technology](https://paailatechnology.com/), where our team worked on the development of service robots, chatbots, and emergency ventilators. Throughout my tenure, I played multifaceted roles as a developer, project manager, and director. I frequently represented my company in exhibitions and events for talk shows and presentations, both domestically and internationally. You can read more about Paaila Technology [here](https://dipkamal.github.io/post/paaila-story/). Before purusing my PhD, I was also involved as a lecturer of computer science at [IIMS College](https://iimscollege.edu.np/) Kathmandu from 2020 to 2021.
+Prior to my PhD, I obtained my Master's in Information Engineering at Pulchowk Campus, Tribhuvan University (Nepal) in 2021 with a core focus on machine learning for medical diagnosis. I graduated as an electronics and communication engineer from Pulchowk Campus, Tribhuvan University (Nepal) in 2016.
+
+From 2016-2021, I was involved as a co-founder of [Paaila Technology](https://paailatechnology.com/), a robotics and AI startup based in Kathmandu, that worked on the development of service robots, and chatbots. Throughout my tenure, I played multifaceted roles as a developer, project manager, and director. You can read more about Paaila Technology [here](https://dipkamal.github.io/post/paaila-story/). Before purusing my PhD, I was also involved as a lecturer of computer science at [IIMS College](https://iimscollege.edu.np/) Kathmandu from 2020 to 2021.
 
 {style="text-align: justify;"}
