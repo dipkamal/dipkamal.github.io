@@ -6,6 +6,8 @@ summary: Notes on attention and transformer
 
 Vanilla RNNs encode word embedding in linear fashion following the principle that nearby words affect the meaning of a sentence. So, the number of steps required for distant word pair interaction grows linearly in O(sequence\_length). This introduces difficulty in learning long distance dependencies because of vanishing gradient problem over long sequence. Encoder of a vanilla RNN uses only one hidden state to capture all information of the input sequence. This causes an information bottleneck. We should extract as much information as possible from our input sequence for decoder part.
 
+For example: in given picture, we want to translate an input sentence in English to Nepali target sentence "ma keta ho". For this type of translation task, one uses a sequence-to-sequence model, which consists of an encoder and a decoder, both of which are RNNs. In encoder, each word produces a hidden vector (called context vector) and output vector. The context vector is passed onto the next word (time). The final hidden state (context vector) is passd onto the decoder part, to translate the sentence. 
+
 <img src="vanilla seq model.png"
      alt="Vanilla Sequence Model"
      style="float: center;" />
