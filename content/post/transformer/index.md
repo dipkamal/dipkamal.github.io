@@ -13,9 +13,12 @@ For example: in given picture, we want to translate an input sentence in English
      style="float: center;" />
 
 
-**Attention as a solution:** To improve long-distance dependencies by solving bottleneck and vanishing gradient problems, attention was proposed. It is a mechanism by which at each time step of decoder, we use direct connection with encoder that allows us to focus on a particular part of the sentence. Attention also provides some interpretability by learning where a decoder is focusing on. Another issue with recurrent models is lack of parallelizability that inhibits training on very large dataset. Attention eases parallelization.
+**Attention as a solution:** To improve long-distance dependencies by solving bottleneck and vanishing gradient problems, attention was proposed. It is a mechanism by which at each time step of decoder, we use direct connection with encoder that allows us to focus on a particular part of the sentence. By connection, it means that instead of just passing one context vector, all hidden states are passed to the decoder. Attention also provides some interpretability by learning where a decoder is focusing on. Another issue with recurrent models is lack of parallelizability that inhibits training on very large dataset. Attention eases parallelization. Transformer, the most popular NLP architecture, uses attention mechanism.
 
-**Self-attention and transformer:** In self attention, query, key and value are obtained from a single source. *There is also cross-attention where the source of query, key and value differ.* In self-attention, query, key and value can are obtained from the output of a previous layer. If $x_1,x_2....x_T$ represent word vector where $T$ is the sequence length then we can assume $v_i=k_i=q_i=x_i$. 
+**Transformer:**
+A transformer architecture also consists of an encoder-decoder part (eg. for a machine translation). The encoder part is a series of encoders stacked together. The same with decoder part. Each encoder consists of a self-attention block followed by a feed forward neural network. The decoder has both these and a encoder-decoder attention layer in between. 
+
+**Self-attention and transformer:** In self attention, the first step is to create three vectors from the encoder's input vector (embedding of each word): query, key and value. *There is also cross-attention where the source of query, key and value differ.* For other encoders in the layer, query, key and value can are obtained from the output of a previous layer. If $x_1,x_2....x_T$ represent word vector where $T$ is the sequence length then we can assume $v_i=k_i=q_i=x_i$. 
 
 
 
