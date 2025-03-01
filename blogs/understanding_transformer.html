@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Shrestha Blogs</title>
+  <title>Dipkamal Blogs</title>
   <link rel="stylesheet" href="../assets/wowchemy.0f229d4b7ebad1917a9a357cba2effab.css">
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -110,10 +110,14 @@
 
       <section id="introduction">
         <p>
-        Vanilla RNNs encode word embedding in linear fashion following the principle that nearby words affect the meaning of a sentence. So, the number of steps required for distant word pair interaction grows linearly in O(sequence\_length). This introduces difficulty in learning long distance dependencies because of vanishing gradient problem over long sequence. Encoder of a vanilla RNN uses only one hidden state to capture all information of the input sequence. This causes an information bottleneck. We should extract as much information as possible from our input sequence for decoder part.
+        Vanilla RNNs encode word embedding in linear fashion following the principle that nearby words affect the meaning of a sentence. So, the number of steps required for distant word pair interaction 
+        grows linearly in O(sequence\_length). This introduces difficulty in learning long distance dependencies because of vanishing gradient problem over long sequence. Encoder of a vanilla RNN uses only 
+        one hidden state to capture all information of the input sequence. This causes an information bottleneck. We should extract as much information as possible from our input sequence for decoder part.
 </p>
 
-<p> For example: in given picture, we want to translate an input sentence in English to Nepali target sentence "ma keta ho". For this type of translation task, one uses a sequence-to-sequence model, which consists of an encoder and a decoder, both of which are RNNs. In encoder, each word produces a hidden vector (called context vector) and output vector. The context vector is passed onto the next word (time). The final hidden state (context vector) is passd onto the decoder part, to translate the sentence. 
+<p> For example: in given picture, we want to translate an input sentence in English to Nepali target sentence "ma keta ho". For this type of translation task, one uses a sequence-to-sequence model, which 
+consists of an encoder and a decoder, both of which are RNNs. In encoder, each word produces a hidden vector (called context vector) and output vector. The context vector is passed onto the next word (time). 
+The final hidden state (context vector) is passd onto the decoder part, to translate the sentence. 
 </p>
 
 <img src="../assets/images/blogs/vanilla seq model.png" alt="vanilla Seq model" style="width:100%; display:block; margin:auto;">
