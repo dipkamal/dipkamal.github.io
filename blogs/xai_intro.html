@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dipkamal Blogs</title>
+  <link rel="stylesheet" href="../assets/wowchemy.0f229d4b7ebad1917a9a357cba2effab.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 18px; }
+    .container-xl { max-width: 1140px; margin: 0 auto; padding: 0 15px; }
+    .col-lg-8 { width: 100%; max-width: 800px; margin: 0 auto; }
+    h1, h2, h3, h4, h5, h6 { font-family: Arial, sans-serif; font-weight: bold; }
+    h1 { font-size: 45px; font-weight: bold; }
+    h2 { font-size: 36px; }
+    h3 { font-size: 28px; }
+    h4 { font-size: 24px; }
+    p { text-align: justify; }
+    .blue { color: rgb(72, 72, 193); }
+    .red { color: red; }
+    img { max-width: 100%; height: auto; }
+    figcaption { text-align: center; font-style: italic; }
+    
+    /* Collapsible TOC styles */
+    .collapsible {
+      background-color: #f1f1f1;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+    }
+    .active, .collapsible:hover {
+      background-color: #ddd;
+    }
+    .content {
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+      background-color: #f9f9f9;
+    }
+
+    .toc-list {
+      list-style-type: none;
+      counter-reset: section;
+      padding-left: 0;
+    }
+    .toc-list > li {
+      counter-increment: section;
+    }
+    .toc-list > li::before {
+      content: counter(section) ". ";
+    }
+    .toc-list > li > ol {
+      list-style-type: none;
+      counter-reset: subsection;
+      padding-left: 20px;
+    }
+    .toc-list > li > ol > li {
+      counter-increment: subsection;
+    }
+    .toc-list > li > ol > li::before {
+      content: counter(section) "." counter(subsection) " ";
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <script src="assets/wowchemy-init.min.ec9d49ca50e4b80bdb08f0417a28ed84.js"></script>
+    <div class="page-header header--fixed">
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+          <!-- make the navbar fit in the middle 8 columns out of 12. And make all the list items align to the right -->
+          <div class="container-xl col-lg-8">
+            <div class="d-none d-lg-inline-flex"><a class="navbar-brand" href="https://dipkamal.github.io/">Dipkamal Bhusal</a></div><button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span><i class="fas fa-bars"></i></span></button>
+            <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none"><a class="navbar-brand"
+                href="https://dipkamal.github.io/">Dipkamal Bhusal</a></div>
+            <!-- <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+              <ul class="navbar-nav d-md-inline-flex">
+                <li class="nav-item"><a class="nav-link active" href="#about"
+                    data-target="#about"><span>About me</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#featured"
+                    data-target="#featured"><span>Research</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#blogs"
+                    data-target="#blogs"><span>Blogs</span></a></li>
+              </ul>
+            </div> -->
+          </div>
+        </nav>
+      </header>
+    </div>
+  <div class="container-xl">
+    <div class="col-lg-8">
+      <header>
+        <h1>A Brief Introduction to Explainable AI (XAI)</h1>
+        <p style="color: gray;">October 12, 2024</p>
+      </header>
+          
+      <div class="text-center">
+        <img src="../assets/images/blogs/pasa.png" alt="XAI" class="img-fluid" style="max-width: 100%; height: auto;">
+        <!-- <p class="figure-caption">Figure 1: Animation illustrating the continuous morphing of distribution p₀ to pₜ.</p> -->
+      </div>
+
+      <p>Deep learning, a powerful tool in computer vision, security, and healthcare, has revolutionized how machines make decisions. 
+      However, there's a catch—these models appear as black-boxes to us. They make predictions, but it's hard for us to grasp how. This is because deep learning models learn a complex non-linear mapping 
+      between the data and the target label, parameterized by millions of weights, making it impossible to understand how a model makes a certain prediction on test cases. 
+      In many cases, such models are proprietary; hence, access to how the models were designed is limited. 
+      This opaque nature poses challenges in assessing their fairness, bias, and reliability. Imagine relying on a 
+      system for critical decisions without knowing how it works—risky, right?</p>
+    
+    <h3>The Need for XAI</h3>
+    
+    <p>That's where eXplainable Artificial Intelligence (XAI) steps in. XAI aims to demystify the decision-making process of these sophisticated models. 
+    There are two main avenues in XAI research: interpretable machine learning and explainability.</p>
+    
+    <h3>Interpretable Machine Learning: Designing Decipherable Models</h3>
+    
+    <p><b>The Challenge:</b> Creating models that are naturally easy to understand.</p>
+    
+    <p>Imagine models that, by their very design, are interpretable. Linear regression, decision trees, and generalized additive models fall into this category. With such models, 
+    you can clearly see the relationship between input features and the output label and understand how a model makes decisions for test cases. 
+    However, achieving high performance with interpretable models, especially with raw data like images, text, and videos, is not easy.</p>
+    
+    <p>There is a growing concern in the deep learning community that reliance on explainability alone is not sufficient, 
+    and the best way to move forward is to design inherently interpretable models, even for datasets like images.</p>
+    
+    <h3>Unveiling the Black Box: Explainability Methods</h3>
+    
+    <p><b>The Game Plan:</b> Unveiling how a model makes decisions.</p>
+    
+    <p>Explainability methods aim to inspect a model's predictions after it's been trained (post-hoc methods). These methods help us understand why a machine learning model made a 
+    specific decision on a given instance. One popular approach in computer vision is the use of <b>heatmaps</b> to visualize where a model focuses on an image during prediction.</p>
+        
+    <p>XAI methods can be classified based on different factors:</p>
+    <ul>
+        <li><b>Local vs. Global:</b> Does the method explain model prediction on a single instance (local) or explain the overall behavior of the model on a dataset (global)?</li>
+        <li><b>Model-Agnostic vs. Model-Specific:</b> Does the method work for any model, or is it designed for a specific architecture?</li>
+        <li><b>Types of Explanation:</b> Feature attribution, concepts, rules, or counterfactual examples.</li>
+    </ul>
+    
+    <h3>Feature Attribution Methods</h3>
+    
+    <p><b>What's the Deal?</b> Understanding the impact of individual features on predictions.</p>
+    
+    <p>Given a trained model \( f(.) \) and a test instance \( x \in R^d \), a feature attribution-based explanation method \( \phi(x) \) returns a vector \( \phi(x) \in R^d \) that provides the 
+    importance vector of the feature.</p>
+    
+    <h4>LIME: Shining a Light Locally</h4>
+    
+    <p><b>High-level idea:</b> Generate local explanations by perturbing inputs.</p>
+    
+    <p>LIME creates an interpretable surrogate model through linear regression. Given a test instance it wants to explain, it perturbs the sample and generates new data samples 
+    to train the surrogate model. It assigns a specific weight to the sample based on its proximity to the original data point. Once you train a surrogate model, a linear regression, 
+    the weights of this model explain the predictions, with higher positive weights indicating the features that contribute the most. 
+
+    <p><b>Pitfalls:</b> LIME's assumptions on feature independence might lead to unreliable insights.  Their explanations are also susceptible to manipulation. 
+    LIME is also generally suitable for tabular data and not prefered for raw datasets like images and text.</p>
+    
+    <h4>SHAP: Playing the Fairness Game</h4>
+    
+    <p><b>High-level idea:</b> Distributing 'credit' fairly among features.</p>
+    
+    <p> Picture your model as a team. SHAP values use game theory to ensure each player (feature) gets a fair share of the victory. 
+    It considers all possible feature combinations and calculate the average contribution of each feature to the model's output. 
+    Like LIME, SHAP generates new samples around a given instance, obtains predictions from the black box model, and trains an interpretable linear model on the dataset. 
+    However, unlike LIME, SHAP assigns weights to the new instances based on the weight a coalition would receive in the Shapley value estimation rather than their proximity to the original sample. 
+</p>
+    
+    <p><b>Pitfalls:</b> SHAP is computationally expensive but provides consistent results across different runs.</p>
+    
+    <h4>Gradient-Based Methods</h4>
+    
+    <p>Gradient methods compute how much the output predictions change when the input features change using the input-gradient (the gradient of model output with respect to input).</p>
+    
+    Vanilla Gradient, computes the gradient of the class score with respect to the input. This gradient quantifies how much the output predictions change when the input features change. 
+    This score serves as a measure of feature attribution. A simple enhancement to this method, called GradientXInput, involves multiplying the gradient by the input features. 
+    Vanilla gradient method computes the gradient of the output with respect to the input feature, and in some cases, even if a neural network heavily relies on a particular feature, 
+    the gradient of the class score related to that feature may have small magnitudes. This issue can arise in deep neural networks (DNNs) due to saturation during the training process. 
+
+    To address this challenge, the integrated gradient (IG) method accumulates gradients along a linear path from a chosen baseline to the given test sample rather than relying on simple gradients. 
+    The selection of the baseline depends on the specific application, but usually a zero baseline vector is considered. SmoothGrad and NoiseGrad propose improvements over gradient-based explanation methods. 
+    In SmoothGrad, for a given test sample, Gaussian noise is added to generate multiple samples, and their feature attributions are averaged to calculate the final attribution. 
+    On the other hand, NoiseGrad introduces noise to the model parameters, generates "n" models, and obtains an ensemble of explanations. 
+    GradientSHAP combines concepts from SHAP, SmoothGrad, and integrated gradient. Instead of selecting a single baseline, it randomly picks a baseline from a distribution of baselines, 
+    often sourced from the training set. It computes attributions for each of these baselines and then averages the results.
+    
+    How do you select the baseline in IG? How do you find the best noise parameter in NoiseGrad and SmoothGrad? Gradient-based explanation methods can also assist attackers in better-estimating gradients for 
+    black-box attacks and may even enable them to reconstruct the underlying model. Worrisome, right?
+
+<h4>Reality check</h4>
+
+<p>Feature attribution based methods are not perfect. Many methods show class-invariant behavior (they produce similar feature attributions regardless of the predicted class). They are susceptible 
+to adversarial manipulations. An adversary (attacker) can change the attribution without changing the model prediction. Additionally, some of these methods have been found to be non-robust 
+to changes in model parameters. Even when random numbers are used to replace the parameters of a trained neural network, 
+the feature attributions remain relatively unchanged. In addition, explanation methods can also exhibit instability in their results, 
+questioning their reliabilility. </p>
+
+
+    <h3>Concept-Based Explanations</h3>
+    
+    <p><b>What's the Twist?</b> Moving beyond pixel-level features to high-level human concepts.</p>
+    <p><b>Why?</b>Pixels might not mean much to us, but shapes, patterns, and objects do. Concept-based explanation methods bridge this gap.</p>
+<p>For example: if you have a doctor vs nurse classifier and want to inspect if the model is biased towards the gender Male in making doctor classification, 
+how can you check that using feature attribution method? Think about it for a while.
+ </p>    
+
+<p>You cannot. Feature attribution-based methods explain model prediction in terms of input features, which are pixels in images. 
+However, such features are not user-friendly. In images, a single pixel does not represent meaningful information as we are more concerned with a 
+group of pixels in the form of shapes, objects, colors or patterns. Concept-based explanation methods were proposed to handle such limitations. 
+This is a fairly new research topic with some progress in recent years. 
+</p>
+
+<p>A concept in a concept-based explanation is an abstraction for high-level features interpretable to humans, like colors, shapes, patterns, and objects. 
+The goal of a concept-based method is to inspect whether the deep learning model used such high-level human ideas in making its classification decision.</p>
+
+
+    <h4>Some recent works</h4>
+
+<p>TCAV paper proposed a supervised approach to inspect whether a model used a concept for prediction and how important was it. To do so, 
+it computes a vector called Concept Activation Vector (CAV), which is a representation of the defined concept in the activation space of a trained model. To compute this vector for an image classifier, 
+we first collect a dataset of images that represents the defined concept and a dataset of random counterexamples. For example: to obtain a vector for 
+a concept called eyes, we collect lots of images of eyes and a set of random counter examples like images of nose, hair, shoes, etc. We pass these images 
+to the neural network and collect activations from a hidden layer of the trained network. Then, we train a binary classifier that separates 
+the activations vectors of concept-dataset and counter-examples. The concept activation vector is a vector orthogonal to this binary classifier. 
+Once we have the concept vector, we can measure its importance or conceptual sensitivity on a given input by computing the derivative of the 
+model prediction on the given input in the direction of the CAV. </p>
+
+<p>There are a few limitations to this method: TCAV performs badly on shallower neural networks since a shallow network might not generate activations that are 
+linearly separable. TCAV also requires human annotation of datasets, which can be error-prone and an expensive task. </p>
+
+<p>ACE, Automated Concept-based Explanation (ACE), proposes an automated process to collect CAVs using segmentation and clustering. However, 
+such segmentation and clustering-based approaches might lose important concepts in the image. ICE avoids this clustering step and modifies the ACE 
+framework using matrix factorization for feature maps. While ACE only provides global explanations for classes, 
+ICE can provide local and global explanations. Since ICE takes information from only one layer, the last layer and concepts are 
+formed gradually along the multiple hidden layers; this approach also loses some important information. We also have to predefine the number 
+of concept components we want to obtain from a class of images. CRAFT also uses matrix factorization to identify concepts. However, in addition 
+to extraction of concepts, it also propagates them to input features and visualizes saliency maps. Few methods 
+have been proposed using generative networks like VAE and GANs to learn concepts from the latent representation of a neural network.</p>
+
+<p>There are few problems with concept-based explanation approach: how do we verify the correctness of the discovered concepts? 
+What if the neural network uses different reasoning for prediction instead of human-understandable concepts? 
+How can these methods be applicable to text or tabular data?</p>
+
+    <h3>Wrapping It Up</h3>
+    
+    <p>Explainable AI is crucial for trusting and understanding the decisions made by complex models. 
+    Feature attribution and concept-based methods are some of the tools, each with its strengths and limitations. 
+    Understanding them and improving them brings us one step closer to reliable and trustworthy AI.
+</p>
+    
+    <h3>Tools You Can Use</h3>
+    <ul>
+        <li><a href="https://captum.ai/">Captum</a></li>
+        <li><a href="https://quantus.readthedocs.io/en/latest/">Quantus</a></li>
+    </ul>
+<h3>Reference Papers</h3>
+    <ul>
+        <li><a href="https://dl.acm.org/doi/pdf/10.1145/3600160.3600193">SoK on XAI</a></li>
+        <li><a href="https://dl.acm.org/doi/pdf/10.1145/2939672.2939778">LIME</a></li>
+        <li><a href="https://proceedings.neurips.cc/paper/2017/file/8a20a8621978632d76c43dfd28b67767-Paper.pdf">SHAP</a></li>
+        <li><a href="https://arxiv.org/pdf/1312.6034.pdf">Vanilla Gradient</a></li>
+        <li><a href="https://proceedings.mlr.press/v70/sundararajan17a/sundararajan17a.pdf">Integrated Gradient</a></li>
+        <li><a href="https://arxiv.org/pdf/1706.03825.pdf">SmoothGrad</a></li>
+        <li><a href="https://ojs.aaai.org/index.php/AAAI/article/view/20561">NoiseGrad</a></li>
+        <li><a href="https://proceedings.mlr.press/v70/shrikumar17a/shrikumar17a.pdf">DeepLift</a></li>
+        <li><a href="https://openaccess.thecvf.com/content_ICCV_2017/papers/Selvaraju_Grad-CAM_Visual_Explanations_ICCV_2017_paper.pdf">GradCAM</a></li>
+        <li><a href="https://proceedings.mlr.press/v80/kim18d/kim18d.pdf">TCAV</a></li>
+        <li><a href="https://proceedings.neurips.cc/paper/2019/file/77d2afcb31f6493e350fca61764efb9a-Paper.pdf">ACE</a></li>
+        <li><a href="https://ojs.aaai.org/index.php/AAAI/article/view/17389">ICE</a></li>
+        <li><a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Fel_CRAFT_Concept_Recursive_Activation_FacTorization_for_Explainability_CVPR_2023_paper.pdf">CRAFT</a></li>
+    </ul>
+
+
+  <script src="../assets/wowchemy.min.e8ee06ba8371980ffde659871dd593b0.js"></script>
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
