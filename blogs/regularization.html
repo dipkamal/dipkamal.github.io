@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dipkamal Blogs</title>
+  <link rel="stylesheet" href="../assets/wowchemy.0f229d4b7ebad1917a9a357cba2effab.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 18px; }
+    .container-xl { max-width: 1140px; margin: 0 auto; padding: 0 15px; }
+    .col-lg-8 { width: 100%; max-width: 800px; margin: 0 auto; }
+    h1, h2, h3, h4, h5, h6 { font-family: Arial, sans-serif; font-weight: bold; }
+    h1 { font-size: 45px; font-weight: bold; }
+    h2 { font-size: 36px; }
+    h3 { font-size: 28px; }
+    h4 { font-size: 24px; }
+    p { text-align: justify; }
+    .blue { color: rgb(72, 72, 193); }
+    .red { color: red; }
+    img { max-width: 100%; height: auto; }
+    figcaption { text-align: center; font-style: italic; }
+    
+    /* Collapsible TOC styles */
+    .collapsible {
+      background-color: #f1f1f1;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+    }
+    .active, .collapsible:hover {
+      background-color: #ddd;
+    }
+    .content {
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+      background-color: #f9f9f9;
+    }
+
+    .toc-list {
+      list-style-type: none;
+      counter-reset: section;
+      padding-left: 0;
+    }
+    .toc-list > li {
+      counter-increment: section;
+    }
+    .toc-list > li::before {
+      content: counter(section) ". ";
+    }
+    .toc-list > li > ol {
+      list-style-type: none;
+      counter-reset: subsection;
+      padding-left: 20px;
+    }
+    .toc-list > li > ol > li {
+      counter-increment: subsection;
+    }
+    .toc-list > li > ol > li::before {
+      content: counter(section) "." counter(subsection) " ";
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <script src="assets/wowchemy-init.min.ec9d49ca50e4b80bdb08f0417a28ed84.js"></script>
+    <div class="page-header header--fixed">
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+          <!-- make the navbar fit in the middle 8 columns out of 12. And make all the list items align to the right -->
+          <div class="container-xl col-lg-8">
+            <div class="d-none d-lg-inline-flex"><a class="navbar-brand" href="https://dipkamal.github.io/">Dipkamal Bhusal</a></div><button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span><i class="fas fa-bars"></i></span></button>
+            <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none"><a class="navbar-brand"
+                href="https://dipkamal.github.io/">Dipkamal Bhusal</a></div>
+            <!-- <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+              <ul class="navbar-nav d-md-inline-flex">
+                <li class="nav-item"><a class="nav-link active" href="#about"
+                    data-target="#about"><span>About me</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#featured"
+                    data-target="#featured"><span>Research</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#blogs"
+                    data-target="#blogs"><span>Blogs</span></a></li>
+              </ul>
+            </div> -->
+          </div>
+        </nav>
+      </header>
+    </div>
+  <div class="container-xl">
+    <div class="col-lg-8">
+      <header>
+        <h1>Regularization in Machine Learning </h1>
+        <p style="color: gray;">October 12, 2024</p>
+      </header>
+          
+      <div class="text-center">
+        <img src="../assets/images/blogs/regularize1.png" alt="overfitting" class="img-fluid" style="max-width: 100%; height: auto;"> 
+        <!-- <p class="figure-caption">Figure 1: Animation illustrating the continuous morphing of distribution p₀ to pₜ.</p> -->
+      </div>
+
+      <p>Regularization is the process of modifying a learning algorithm to reduce generalization error, i.e., error on unseen test data. 
+      It prevents overfitting by increasing model bias and reducing variance. This will always hurt the training error, 
+      but we accept this compromise to achieve better generalization on unseen test data.</p>
+
+      <p>Above figure shows a model in which training loss gradually decreases, 
+      but validation loss eventually goes up. In other words, this generalization 
+      curve shows that the model is overfitting to the data in the training set. 
+      So, instead of minimizing just the loss of the model, with minimize(Loss(Data|Model_Parameters)), we will now minimize loss+complexity i.e. minimize(Loss(Data|Model)) + complexity (model).
+</p>
+
+
+<p>Our training optimization algorithm which only consisted of loss term, is now a function of two terms: the (old) loss term, 
+which measures how well the model fits the data, and the regularization term, 
+which measures model complexity. Model complexity can be viewed as a function of weights of all 
+the features in the model or the total number of non-zero weight features in the model. There are two methods to quantify these views.
+</p>
+    
+   <h3>Regularization by Introducing a Parameter Norm Penalty</h3>
+    <p>Let \( J \) be the objective function (loss), \( \theta \) be the model parameters, \( X \) and \( y \) be the input-output pair, and \( \Omega (\theta) \) be the parameter norm introduced as a penalty. The modified regularized objective function is given by:</p>
+    
+    \[ J'(\theta; X,y) = J(\theta; X,y) + \alpha \Omega (\theta) \]
+    
+    <p>where \( \alpha \) is the regularization parameter, controlling the strength of regularization.</p>
+    
+    <h3>L2 Regularization</h3>
+    <p>Also known as Ridge regression or Tikhonov regularization, L2 regularization defines the penalty as:</p>
+    
+    \[ \Omega (\theta) = \frac{1}{2} ||w||_2^2 \]
+    
+    <p>The regularized loss function becomes:</p>
+    
+    \[ J'(\theta; X,y) = J(\theta; X,y) + \frac{\alpha}{2} ||w||_2^2 \]
+    
+    <p>The gradient update rule is:</p>
+    
+    \[ w = w(1 - \epsilon \alpha) - \epsilon \nabla_w J(\theta; X,y) \]
+    
+    <p>This shows that at every iteration, the weight is shrunk by a constant factor.</p>
+    
+    <img src="l2.png" alt="L2 Regularization" style="float: right; margin-left: 10px;" />
+    
+    <p>In L2 regularization, model complexity can be viewed as a function of the sum of squared feature weights in the model. Hence, models with large weights are considered more complex. The goal of L2 regularization is to reduce the magnitude of weights, encouraging smaller but nonzero values, leading to a smoother model that is less sensitive to noise. Unlike L1 regularization, L2 does not enforce sparsity but instead distributes weight values more evenly across features.</p>
+    
+    <p>For a squared error loss function with a two-dimensional weight vector, the regularization constraint is represented as a circle with radius \( \alpha \). The goal is to find a point where the loss is minimized while lying within the regularizer’s circle.</p>
+    
+    <h3>L1 Regularization</h3>
+    <p>L1 regularization, also known as Lasso regression, penalizes the absolute sum of weights:</p>
+    
+    \[ \Omega (\theta) = ||w||_1 \]
+    
+    <p>The regularized loss function becomes:</p>
+    
+    \[ J'(\theta; X,y) = J(\theta; X,y) + \alpha ||w||_1 \]
+    
+    <p>The gradient update rule is:</p>
+    
+    \[ w = w - \epsilon \alpha sign(w) - \nabla_w J(\theta; X,y) \]
+    
+    <img src="l1.png" alt="L1 Regularization" style="float: left; margin-right: 10px;" />
+    
+    <p>In L1 regularization, model complexity is viewed as a function of the total number of features with nonzero weights. The goal is to drive some weights to zero, effectively selecting the most important features and producing a sparse parameter representation. This sparsity property makes L1 regularization useful for feature selection.</p>
+    
+    <p>L1 regularization finds the optimal weight values by minimizing the loss within the unit norm ball of an L1 norm, represented as a square (or diamond) due to the four different constraint lines derived from the L1 regularizer equation.</p>
+    
+    <h3>L0 Regularization</h3>
+    <p>L0 regularization aggressively introduces sparsity by removing features based on a threshold count of non-zero parameters. Unlike L1 and L2, L0 regularization is neither convex nor differentiable, making it computationally difficult to optimize.</p>
+    
+    <h3>Other Forms of Regularization</h3>
+    <ul>
+        <li><b>Dataset Augmentation:</b> Generating transformed versions of data to improve model robustness.</li>
+        <li><b>Noise Injection:</b> Adding noise to input, weights, or output labels to prevent overfitting.</li>
+        <li><b>Dropout:</b> Training an ensemble of sub-networks by randomly removing units during training.</li>
+        <li><b>Early Stopping:</b> Stopping training when validation performance no longer improves.</li>
+        <li><b>Sparse Representation:</b> Encouraging sparsity in hidden activations using an L1 penalty.</li>
+    </ul>
+    
+    <h3>References</h3>
+    <ul>
+        <li><a href="https://www.deeplearningbook.org/">Deep Learning Book</a></li>
+        <li><a href="https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/l2-regularization">Google Crash Course on Regularization</a></li>
+    </ul>
+
+
+  <script src="../assets/wowchemy.min.e8ee06ba8371980ffde659871dd593b0.js"></script>
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
