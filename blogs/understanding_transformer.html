@@ -129,32 +129,27 @@ all hidden states are passed to the decoder. Attention also provides some interp
 is lack of parallelizability that inhibits training on very large dataset. Attention eases parallelization. Transformer, the most popular NLP architecture, uses attention mechanism.</p>
 
 
-Now, lets talk about the transformer model and break it down. At the core of the Transformer model is the **self-attention mechanism**, which allows the model to weigh the importance of different words in a sequence. In this post, we break down the Transformer model in detail, including input embeddings, positional encodings, self-attention, multi-head attention, and inference strategies.
+Now, lets talk about the transformer model and break it down. At the core of the Transformer model is the self-attention mechanism (which we briefly discussed just now but we will get back to it). This mechanism 
+allows the model to weigh the importance of different words in a sequence. 
 
-## 2. Input Embeddings and Tokenization
-A Transformer model starts with **input embeddings**, which convert words or subwords into numerical representations. Since neural networks operate on numbers, text input must be tokenized and mapped to fixed-size vectors.
 
-1. **Tokenization**: A sentence is first tokenized into words, subwords, or characters.
-2. **Mapping to IDs**: Each token is assigned a unique numerical ID based on a fixed vocabulary.
-3. **Embedding lookup**: Each token ID is mapped to a high-dimensional dense vector using a learned **embedding matrix**.
-
-Mathematically, if a vocabulary has `V` tokens and the embedding dimension is `d_model`, then the embedding matrix `E` is of shape `(V, d_model)`. Given a token `t_i` with index `i` in the vocabulary, its embedding is retrieved as:
+<h3>Input Embeddings and Tokenization </h3>
+As shown in the Transformer architecture, a Transformer model starts with input embeddings, which convert words or subwords into numerical representations. 
+Since neural networks operate on numbers, text input must be tokenized and mapped to fixed-size vectors. Tokenization tokenizes or breaks the sentence into words, subwords, or characters. Then, every token is 
+assigned a unique numerical ID based on a fixed vocabulary. Each token ID is then mapped to a high-dimensional dense vector using a learned embedding matrix. Mathematically, if a vocabulary has 
+\(V\) tokens and the embedding dimension is \(d_model\), then the embedding matrix \(E\) is of shape \(V, d_model\). Given a token \(t_i\) with index \(i\) in the vocabulary, its embedding is retrieved as:
 
 \[
 \mathbf{e}_i = E[i]
 \]
 
-Initially, the embedding matrix is randomly initialized (e.g., using **Xavier** or **Gaussian initialization**) and is **learned through training** via backpropagation. Since embeddings capture semantic meaning, words with similar meanings tend to have similar vector representations.
+Initially, the embedding matrix is randomly initialized (e.g., using Gaussian initialization) and is learned through training via backpropagation. 
+Since embeddings capture semantic meaning, words with similar meanings tend to have similar vector representations.
 
----
-
-## 3. Positional Encodings
-Unlike RNNs, Transformers do not have inherent sequential processing. To incorporate word order, **positional encodings** are added to embeddings. These encodings help the model recognize which words appear earlier or later in a sequence.
-
-### 3.1. Why Use Trigonometric Functions?
-Positional encodings are **not learned** but instead computed once using sine and cosine functions. These functions provide a continuous pattern that allows the model to generalize to different sequence lengths.
-
-For a position `pos` and embedding dimension `d_model`, the encoding is computed as:
+<h3>Positional Encodings</h3>
+Unlike RNNs, Transformers do not have inherent sequential processing. To incorporate word order, positional encodings are added to embeddings. These encodings help the model recognize which words appear 
+earlier or later in a sequence. But positional encodings are not learned but instead computed once using sine and cosine functions. These functions provide a continuous pattern that allows the model to 
+generalize to different sequence lengths. For a position \(pos\) and embedding dimension \(d_model\), the encoding is computed as:
 
 \[
 PE_{(pos, 2i)} = \sin\left(\frac{pos}{10000^{2i/d_{model}}}\right)
@@ -164,116 +159,77 @@ PE_{(pos, 2i)} = \sin\left(\frac{pos}{10000^{2i/d_{model}}}\right)
 PE_{(pos, 2i+1)} = \cos\left(\frac{pos}{10000^{2i/d_{model}}}\right)
 \]
 
-where:
-- `i` is the index of a dimension in the embedding vector.
-- `10000^(2i/d_model)` ensures different frequency scales for different dimensions.
-
-Since sine and cosine functions form a periodic pattern, they help the model recognize relative positions effectively. The positional encoding is **added element-wise** to the input embeddings before being passed into the encoder:
+where \(i\) is the index of a dimension in the embedding vector. Since sine and cosine functions form a periodic pattern, they help the model recognize relative positions effectively. 
+The positional encoding is added element-wise to the input embeddings before being passed into the encoder:
 
 \[
 \mathbf{x}_i = \mathbf{e}_i + PE_i
 \]
 
-where `x_i` is the final input to the Transformer.
 
----
+<h3>Self-Attention Mechanism</h3>
 
-## 4. Self-Attention Mechanism
-The **self-attention mechanism** enables the model to relate different words in a sentence. Instead of processing tokens sequentially, self-attention computes dependencies between **all** words at once.
-
-### 4.1. Query, Key, and Value Vectors
-For each input token, three vectors are computed using learned weight matrices:
-- **Query (Q)**: Represents the word asking for information.
-- **Key (K)**: Represents the word providing information.
-- **Value (V)**: Contains the actual information to be passed.
-
-These are computed as:
+The self-attention mechanism enables the model to relate different words in a sentence. Instead of processing tokens sequentially, self-attention computes dependencies between all words at once. This is done 
+using three vectos created from the input token: Query, Key, and Value. In transformer encoder, these are multiplied with learned weight matrices, and final Q,K,V computed as:
 
 \[
 Q = X W_Q, \quad K = X W_K, \quad V = X W_V
 \]
 
-where:
-- `X` is the input embedding matrix.
-- `W_Q`, `W_K`, and `W_V` are learnable weight matrices.
+where, \(W_Q, W_K\), and \(W_V\) are learnable weight matrices.
 
-### 4.2. Attention Score Computation
-The attention score between two words is computed using the dot product of their **query** and **key** vectors:
+The attention score between two words is computed using the dot product of their query and key vectors:
 
 \[
 \text{score} = Q K^T
 \]
 
-To prevent excessively large values, the score is scaled by the square root of the embedding dimension `d_k`:
+To prevent excessively large values, the score is scaled by the square root of the embedding dimension \(d_k\):
 
 \[
 \text{Attention}(Q, K, V) = \text{softmax} \left( \frac{QK^T}{\sqrt{d_k}} \right) V
 \]
 
-- The **softmax** function ensures that attention scores sum to 1, making them interpretable as probabilities.
-- This attention mechanism allows words to influence each other dynamically, depending on their learned relationships.
+The softmax function ensures that attention scores sum to 1, making them interpretable as probabilities. This attention mechanism allows words to influence each other dynamically, depending on their learned relationships. 
+To prevent words from attending to future words during training, a masking mechanism sets certain values to `-∞` before applying softmax. This ensures that a word only considers past words during decoding.
 
-### 4.3. Masking
-To prevent words from attending to future words during training, a **masking mechanism** sets certain values to `-∞` before applying softmax. This ensures that a word only considers past words during decoding.
 
----
-
-## 5. Multi-Head Attention
-Instead of using a single attention mechanism, **multi-head attention** uses multiple **parallel** attention heads. Each head focuses on different relationships between words.
-
-For each head `i`, separate weight matrices `W_Q^i`, `W_K^i`, and `W_V^i` are used:
+<h3>Multi-Head Attention</h3>
+Transformer however uses multihead attentions which means instead of using a single attention mechanism, it uses multiple parallel attention heads. Each head focuses on 
+different relationships between words. For each head \(i\), separate weight matrices are used. 
 
 \[
 \text{head}_i = \text{Attention}(QW_Q^i, KW_K^i, VW_V^i)
 \]
 
-The outputs of all heads are concatenated and projected using another matrix `W_O`:
+The outputs of all heads are concatenated and projected using another matrix \(W_O\):
 
 \[
 \text{MultiHead}(Q, K, V) = \text{Concat}(\text{head}_1, ..., \text{head}_h) W^O
 \]
 
-This allows the model to capture multiple types of relationships in parallel.
+This allows the model to capture multiple types of relationships in parallel. The following figure from Umar Jamil should make things more clear on how multi-head attention is computed.
 
----
 
-## 6. Add & Norm Layers
-After multi-head attention, the output is **added** back to the original input embedding (residual connection) and **normalized** using **layer normalization**:
+<img src="../assets/images/blogs/transformer/vanilla seq model.png" alt="vanilla Seq model" style="width:100%; display:block; margin:auto;">
+
+
+After multi-head attention, the output is added back to the original input embedding (residual connection) and normalized using layer normalization:
 
 \[
 \text{Norm}(\mathbf{x}) = \frac{\mathbf{x} - \mu}{\sigma}
 \]
 
-where `μ` and `σ` are the mean and standard deviation of the input.
-
-This helps stabilize training and prevents vanishing/exploding gradients.
-
----
-
-## 7. The Decoder and Masked Attention
-The decoder follows a similar structure as the encoder but with **masked multi-head attention** to ensure causality.
-
-- The **first** self-attention layer in the decoder is **masked** to prevent words from attending to future words.
-- The **second** attention layer (encoder-decoder attention) attends to the encoder outputs.
-- The **final** fully connected layer generates the predicted token probabilities.
-
----
-
-## 8. Training and Inference
-### 8.1. Training
-During training, the Transformer processes entire sequences in parallel. The model is optimized using **cross-entropy loss** and **teacher forcing**, where the correct output is provided as input at each step.
-
-### 8.2. Inference Strategies
-#### Greedy Decoding
-- At each step, the word with the highest probability is selected.
-- This method is fast but often leads to suboptimal results.
-
-#### Beam Search
-- At each step, the top `B` most probable words are selected.
-- The model evaluates all possible next words and keeps the `B` most probable sequences.
-- This method generally produces better translations.
+where \(μ\) and \(σ\) are the mean and standard deviation of the input. This helps stabilize training and prevents vanishing/exploding gradients. Now, this becomes the output of the encoder block,
+ which becomes Key and Value for the decoder side. 
 
 
+<h3>Decoder</h3>
+
+In the decoder side, Query comes form the output embeddings (eg, target sentence). The input embedding and positional encoding 
+ is computed same as the encoder side. The decoder then follows a similar structure as the encoder but with different attention mechanism: masked multi-head attention.
+ This satisfies our goal of making the model causal: the output at a certain position can only depend on the words on the previous positions. The model must not be able to see future words. 
+ We can do this by replacing all the values above the diagonal with \(\infty\) before applying the softmax. The final fully connected layer generates the predicted token probabilities.
 
 
       </section>
