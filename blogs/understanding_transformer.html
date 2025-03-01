@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shrestha Blogs</title>
+  <link rel="stylesheet" href="../assets/wowchemy.0f229d4b7ebad1917a9a357cba2effab.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 18px; }
+    .container-xl { max-width: 1140px; margin: 0 auto; padding: 0 15px; }
+    .col-lg-8 { width: 100%; max-width: 800px; margin: 0 auto; }
+    h1, h2, h3, h4, h5, h6 { font-family: Arial, sans-serif; font-weight: bold; }
+    h1 { font-size: 45px; font-weight: bold; }
+    h2 { font-size: 36px; }
+    h3 { font-size: 28px; }
+    h4 { font-size: 24px; }
+    p { text-align: justify; }
+    .blue { color: rgb(72, 72, 193); }
+    .red { color: red; }
+    img { max-width: 100%; height: auto; }
+    figcaption { text-align: center; font-style: italic; }
+    
+    /* Collapsible TOC styles */
+    .collapsible {
+      background-color: #f1f1f1;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+    }
+    .active, .collapsible:hover {
+      background-color: #ddd;
+    }
+    .content {
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+      background-color: #f9f9f9;
+    }
+
+    .toc-list {
+      list-style-type: none;
+      counter-reset: section;
+      padding-left: 0;
+    }
+    .toc-list > li {
+      counter-increment: section;
+    }
+    .toc-list > li::before {
+      content: counter(section) ". ";
+    }
+    .toc-list > li > ol {
+      list-style-type: none;
+      counter-reset: subsection;
+      padding-left: 20px;
+    }
+    .toc-list > li > ol > li {
+      counter-increment: subsection;
+    }
+    .toc-list > li > ol > li::before {
+      content: counter(section) "." counter(subsection) " ";
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <script src="assets/wowchemy-init.min.ec9d49ca50e4b80bdb08f0417a28ed84.js"></script>
+    <div class="page-header header--fixed">
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+          <!-- make the navbar fit in the middle 8 columns out of 12. And make all the list items align to the right -->
+          <div class="container-xl col-lg-8">
+            <div class="d-none d-lg-inline-flex"><a class="navbar-brand" href="https://dipkamal.github.io/">Dipkamal Bhusal</a></div><button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span><i class="fas fa-bars"></i></span></button>
+            <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none"><a class="navbar-brand"
+                href="https://dipkamal.github.io/">Dipkamal Bhusal</a></div>
+            <!-- <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+              <ul class="navbar-nav d-md-inline-flex">
+                <li class="nav-item"><a class="nav-link active" href="#about"
+                    data-target="#about"><span>About me</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#featured"
+                    data-target="#featured"><span>Research</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#blogs"
+                    data-target="#blogs"><span>Blogs</span></a></li>
+              </ul>
+            </div> -->
+          </div>
+        </nav>
+      </header>
+    </div>
+  <div class="container-xl">
+    <div class="col-lg-8">
+      <header>
+        <h1>Understanding Attention and Transformer</h1>
+        <p style="color: gray;">October 12, 2022</p>
+      </header>
+      
+      {% comment %} <!-- Collapsible Table of Contents -->
+      <button type="button" class="collapsible">Table of Contents</button>
+      <div class="content">
+        <ol class="toc-list">
+          <li><a href="#density-transport">The Density Transport Perspective</a>
+            <ol>
+              <li><a href="#probability-path">Probability Path and Stochastic Process</a></li>
+            </ol>
+          </li>
+          <li><a href="#flow-matching">Flow Matching</a>
+            <ol>
+              <li><a href="#flow-velocity">Flow and the velocity field</a></li>
+              <li><a href="#fm-objective">The flow matching objective</a></li>
+              <li><a href="#fm-implementation">Flow Matching Implementation</a></li>
+            </ol>
+          </li>
+          <li><a href="#diffusion-models">Diffusion Models</a>
+            <ol>
+              <li><a href="#diffusion-instances">Instances of the diffusion process</a></li>
+              <li><a href="#forward-reverse-sde">Forward and Reverse SDE</a></li>
+              <li><a href="#smld-objective">The score matching objective</a></li>
+              <li><a href="#ddpm-objective">The denoising diffusion objective</a></li>
+            </ol>
+          </li>
+          <li><a href="#fm-diff-relationship">Connection between flow matching and diffusion</a>
+            <ol>
+              <li><a href="#generating-samples">Generating samples: Probability Flow ODE and the Reverse SDE</a></li>
+              <li><a href="#sde-implementation">Implementation: Sampling with Score based SDE</a></li>
+            </ol>
+          </li>
+          <li><a href="#references">References</a></li>
+        </ol>
+      </div> {% endcomment %}
+
+      <div style="height: 50px;"></div>
+      
+      <div class="text-center">
+        <img src="../assets/images/blogs/transformer.png" alt="Transformer and attention" class="img-fluid" style="max-width: 100%; height: auto;">
+        <!-- <p class="figure-caption">Figure 1: Animation illustrating the continuous morphing of distribution p₀ to pₜ.</p> -->
+      </div>
+
+      <section id="introduction">
+        <p>
+        Vanilla RNNs encode word embedding in linear fashion following the principle that nearby words affect the meaning of a sentence. So, the number of steps required for distant word pair interaction grows linearly in O(sequence\_length). This introduces difficulty in learning long distance dependencies because of vanishing gradient problem over long sequence. Encoder of a vanilla RNN uses only one hidden state to capture all information of the input sequence. This causes an information bottleneck. We should extract as much information as possible from our input sequence for decoder part.
+</p>
+
+<p> For example: in given picture, we want to translate an input sentence in English to Nepali target sentence "ma keta ho". For this type of translation task, one uses a sequence-to-sequence model, which consists of an encoder and a decoder, both of which are RNNs. In encoder, each word produces a hidden vector (called context vector) and output vector. The context vector is passed onto the next word (time). The final hidden state (context vector) is passd onto the decoder part, to translate the sentence. 
+</p>
+
+<img src="../assets/images/blogs/vanilla seq model.png" alt="vanilla Seq model" style="width:100%; display:block; margin:auto;">
+
+
+<p>  To improve long-distance dependencies by solving bottleneck and vanishing gradient problems, attention was proposed. It is a mechanism by which at each time step of decoder, we use direct connection with encoder that allows us to focus on a particular part of the sentence. By connection, it means that instead of just passing one context vector, all hidden states are passed to the decoder. Attention also provides some interpretability by learning where a decoder is focusing on. Another issue with recurrent models is lack of parallelizability that inhibits training on very large dataset. Attention eases parallelization. Transformer, the most popular NLP architecture, uses attention mechanism.</p>
+
+      </section>
+
+      <section id="references">
+        <h3>References</h3>
+
+        <div id="eyring2023unbalancedness" style="margin-bottom: 10px;">
+          <p>[<span class="blue">Vaswani et al. 2017</span>] Attention Is All You Need</p>
+        </div>
+
+        <div id="annotated-diffusion" style="margin-bottom: 10px;">
+          <p>[<span class="blue">The Illustrated Transformer</span>] https://jalammar.github.io/illustrated-transformer/</p>
+        </div>
+
+<div id="annotated-diffusion" style="margin-bottom: 10px;">
+          <p>[<span class="blue">Transformer from scratch</span>] https://github.com/hkproj/transformer-from-scratch-notes/blob/main/Diagrams_V2.pdf</p>
+        </div>
+        
+      </section>
+    </div>
+  </div>
+
+  <script src="../assets/wowchemy.min.e8ee06ba8371980ffde659871dd593b0.js"></script>
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
