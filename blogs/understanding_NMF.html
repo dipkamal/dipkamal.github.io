@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dipkamal Blogs</title>
+  <link rel="stylesheet" href="../assets/wowchemy.0f229d4b7ebad1917a9a357cba2effab.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 18px; }
+    .container-xl { max-width: 1140px; margin: 0 auto; padding: 0 15px; }
+    .col-lg-8 { width: 100%; max-width: 800px; margin: 0 auto; }
+    h1, h2, h3, h4, h5, h6 { font-family: Arial, sans-serif; font-weight: bold; }
+    h1 { font-size: 45px; font-weight: bold; }
+    h2 { font-size: 36px; }
+    h3 { font-size: 28px; }
+    h4 { font-size: 24px; }
+    p { text-align: justify; }
+    .blue { color: rgb(72, 72, 193); }
+    .red { color: red; }
+    img { max-width: 100%; height: auto; }
+    figcaption { text-align: center; font-style: italic; }
+    
+    /* Collapsible TOC styles */
+    .collapsible {
+      background-color: #f1f1f1;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+    }
+    .active, .collapsible:hover {
+      background-color: #ddd;
+    }
+    .content {
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+      background-color: #f9f9f9;
+    }
+
+    .toc-list {
+      list-style-type: none;
+      counter-reset: section;
+      padding-left: 0;
+    }
+    .toc-list > li {
+      counter-increment: section;
+    }
+    .toc-list > li::before {
+      content: counter(section) ". ";
+    }
+    .toc-list > li > ol {
+      list-style-type: none;
+      counter-reset: subsection;
+      padding-left: 20px;
+    }
+    .toc-list > li > ol > li {
+      counter-increment: subsection;
+    }
+    .toc-list > li > ol > li::before {
+      content: counter(section) "." counter(subsection) " ";
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <script src="assets/wowchemy-init.min.ec9d49ca50e4b80bdb08f0417a28ed84.js"></script>
+    <div class="page-header header--fixed">
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+          <!-- make the navbar fit in the middle 8 columns out of 12. And make all the list items align to the right -->
+          <div class="container-xl col-lg-8">
+            <div class="d-none d-lg-inline-flex"><a class="navbar-brand" href="https://dipkamal.github.io/">Dipkamal Bhusal</a></div><button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span><i class="fas fa-bars"></i></span></button>
+            <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none"><a class="navbar-brand"
+                href="https://dipkamal.github.io/">Dipkamal Bhusal</a></div>
+            <!-- <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+              <ul class="navbar-nav d-md-inline-flex">
+                <li class="nav-item"><a class="nav-link active" href="#about"
+                    data-target="#about"><span>About me</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#featured"
+                    data-target="#featured"><span>Research</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#blogs"
+                    data-target="#blogs"><span>Blogs</span></a></li>
+              </ul>
+            </div> -->
+          </div>
+        </nav>
+      </header>
+    </div>
+  <div class="container-xl">
+    <div class="col-lg-8">
+      <header>
+        <h1>Non-negative Matrix Factorization</h1>
+        <p style="color: gray;">October 12, 2022</p>
+      </header>
+          
+      <div class="text-center">
+        <img src="../assets/images/blogs/nmf/nmf.png" alt="Non-negative Matrix Factorization" class="img-fluid" style="max-width: 100%; height: auto;">
+        <!-- <p class="figure-caption">Figure 1: Animation illustrating the continuous morphing of distribution p₀ to pₜ.</p> -->
+      </div>
+
+      <p>Matrix factorization is a powerful technique used in various fields such as machine learning, data analysis, and recommender systems. At its core, matrix factorization involves decomposing a matrix into multiple matrices, typically of lower rank, to extract meaningful patterns and latent features. By representing the original matrix in terms of its constituent parts, matrix factorization enables dimensionality reduction, noise reduction, and capturing underlying structure within the data.</p>
+    
+    <h3>What is NMF?</h3>
+    
+    <p>Non-negative Matrix Factorization (NMF) is a specialized form of matrix factorization that imposes additional constraints on the decomposition process. Unlike traditional matrix factorization methods, NMF requires that all elements in the original matrix and the resulting factor matrices be non-negative. This constraint makes NMF particularly useful for data that naturally occurs in non-negative spaces, such as images, text documents, and audio signals.</p>
+    
+    <p>In NMF, the original matrix \(X\) is factorized into two matrices, \(W\) and \(H\), such that</p>
+    
+    \[ X \approx WH \]
+    
+    <p>Where:</p>
+    <ul>
+        <li>\(X \in R^{M\times N}_+\)</li>
+        <li>\(W \in R^{M\times r}_+\)</li>
+        <li>\(H \in R^{r \times N}_+\)</li>
+    </ul>
+    
+    <p>The parameter \(r\) is called the approximation rank. The key characteristic of NMF is that all elements of \(W\) and \(H\) are constrained to be non-negative, which allows for an intuitive interpretation of the resulting factors as additive parts.</p>
+    
+    <h3>What does this approximation signify?</h3>
+    
+    <p>The above equation for NMF can be rewritten column-wise as \(x \approx Wh\), where \(x\) and \(h\) are corresponding columns of the matrix \(X\) and \(H\). This indicates that, with this factorization, we are approximating the data vector \(x\) by a linear combination of the columns in \(W\) weighted by the components in \(h\). This means that the matrix \(W\) contains new basis vectors optimized for the linear approximation of the original data in \(X\). A good approximation can be achieved if the basis vectors can discover the underlying structure from the data.</p>
+    
+    <h3>Solving the Optimization</h3>
+    
+    <p>To solve this optimization, we need to define a cost function that we can minimize using optimization techniques like gradient descent. One of the most common cost functions is the Frobenius norm, where the distance between the original data vector and the approximation is computed as:</p>
+    
+    \[ D(X \mid WH) = \| X - WH \|^2_F \]
+    
+    <p>where,</p>
+    
+    \[ \| A - B\|^2_F = \sum_{ij} (A_{ij} - B_{ij})^2 \]
+    
+    <p>Our optimization problem for NMF can be defined as:</p>
+    
+    \[ W^*, H^*  = \arg\min_{W\geq 0,H \geq 0} \frac{1}{2} \| X - WH \|^2_F \]
+    
+    <p>We cannot minimize this cost function jointly with respect to both \(W\) and \(H\), hence, an alternating technique is used. Minimization is performed for each variable separately at each iteration, keeping the other one fixed.</p>
+    
+    <h3>Gradient Computation</h3>
+    
+    <p>We first compute the gradient with respect to \(W\) while keeping \(H\) fixed:</p>
+    
+    \[ \nabla_W \frac{1}{2} \| X - WH \|^2_F = - X H^T + W H H^T \]
+    
+    <p>The update rule for \(W\) is given by:</p>
+    
+    \[ W_{ij} \leftarrow W_{ij} + \eta_{ij} (X H^T - W H H^T)_{ij} \]
+    
+    <p>The multiplicative update rule by Lee and Seung uses:</p>
+    
+    \[ \eta_{ij} = \frac{W_{ij}}{(W H H^T)_{ij}} \]
+    
+    <p>This modifies the update rule to:</p>
+    
+    \[ W_{ij} \leftarrow W_{ij} \frac{(X H^T)_{ij}}{(W H H^T)_{ij}} \]
+    
+    <p>Similarly, for \(H\), keeping \(W\) fixed:</p>
+    
+    \[ \nabla_H \frac{1}{2} \| X - WH \|^2_F = -W^T X +  W^T W H \]
+    
+    <p>and the update rule is:</p>
+    
+    \[ H_{ij} \leftarrow H_{ij} \frac{(W^T X)_{ij}}{(W^T W H)_{ij}} \]
+    
+    <h3>Is NMF better than other factorization methods?</h3>
+    
+    <p>NMF is often preferred if the original data matrix has non-negative values for the following reasons:</p>
+    <ul>
+        <li><b>Parts-Based Representation:</b> NMF provides a parts-based representation of data, which is useful in image processing and text mining.</li>
+        <li><b>Interpretability:</b> The non-negativity constraint leads to more interpretable factors.</li>
+        <li><b>Dimensionality Reduction:</b> NMF reduces computational complexity and overfitting in high-dimensional datasets.</li>
+        <li><b>Sparsity:</b> NMF tends to produce sparse representations, aiding efficient computation.</li>
+    </ul>
+    
+    <p>However, NMF has challenges, such as being NP-hard, requiring alternating optimization, and being ill-posed due to multiple equivalent factorizations. Regularization techniques, such as sparsity constraints, help mitigate these issues.</p>
+    
+    <h3>References</h3>
+    <ul>
+        <li><a href="https://proceedings.neurips.cc/paper_files/paper/2000/file/f9d1152547c0bde01830b7e8bd60024c-Paper.pdf">Algorithms for NMF</a></li>
+        <li><a href="https://www.nature.com/articles/44565">Learning the parts of objects by NMF</a></li>
+        <li><a href="https://www.almoststochastic.com/2013/06/nonnegative-matrix-factorization.html">Solving NMF</a></li>
+        <li><a href="https://arxiv.org/pdf/1401.5226.pdf">Why NMF?</a></li>
+    </ul>
+
+  <script src="../assets/wowchemy.min.e8ee06ba8371980ffde659871dd593b0.js"></script>
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
