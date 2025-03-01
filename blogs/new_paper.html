@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dipkamal Blogs</title>
+  <link rel="stylesheet" href="../assets/wowchemy.0f229d4b7ebad1917a9a357cba2effab.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 18px; }
+    .container-xl { max-width: 1140px; margin: 0 auto; padding: 0 15px; }
+    .col-lg-8 { width: 100%; max-width: 800px; margin: 0 auto; }
+    h1, h2, h3, h4, h5, h6 { font-family: Arial, sans-serif; font-weight: bold; }
+    h1 { font-size: 45px; font-weight: bold; }
+    h2 { font-size: 36px; }
+    h3 { font-size: 28px; }
+    h4 { font-size: 24px; }
+    p { text-align: justify; }
+    .blue { color: rgb(72, 72, 193); }
+    .red { color: red; }
+    img { max-width: 100%; height: auto; }
+    figcaption { text-align: center; font-style: italic; }
+    
+    /* Collapsible TOC styles */
+    .collapsible {
+      background-color: #f1f1f1;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+    }
+    .active, .collapsible:hover {
+      background-color: #ddd;
+    }
+    .content {
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+      background-color: #f9f9f9;
+    }
+
+    .toc-list {
+      list-style-type: none;
+      counter-reset: section;
+      padding-left: 0;
+    }
+    .toc-list > li {
+      counter-increment: section;
+    }
+    .toc-list > li::before {
+      content: counter(section) ". ";
+    }
+    .toc-list > li > ol {
+      list-style-type: none;
+      counter-reset: subsection;
+      padding-left: 20px;
+    }
+    .toc-list > li > ol > li {
+      counter-increment: subsection;
+    }
+    .toc-list > li > ol > li::before {
+      content: counter(section) "." counter(subsection) " ";
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <script src="assets/wowchemy-init.min.ec9d49ca50e4b80bdb08f0417a28ed84.js"></script>
+    <div class="page-header header--fixed">
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+          <!-- make the navbar fit in the middle 8 columns out of 12. And make all the list items align to the right -->
+          <div class="container-xl col-lg-8">
+            <div class="d-none d-lg-inline-flex"><a class="navbar-brand" href="https://dipkamal.github.io/">Dipkamal Bhusal</a></div><button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span><i class="fas fa-bars"></i></span></button>
+            <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none"><a class="navbar-brand"
+                href="https://dipkamal.github.io/">Dipkamal Bhusal</a></div>
+            <!-- <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+              <ul class="navbar-nav d-md-inline-flex">
+                <li class="nav-item"><a class="nav-link active" href="#about"
+                    data-target="#about"><span>About me</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#featured"
+                    data-target="#featured"><span>Research</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#blogs"
+                    data-target="#blogs"><span>Blogs</span></a></li>
+              </ul>
+            </div> -->
+          </div>
+        </nav>
+      </header>
+    </div>
+  <div class="container-xl">
+    <div class="col-lg-8">
+      <header>
+        <h1>Summary of Papers</h1>
+        <p style="color: gray;">Dec 2024</p>
+      </header>
+          
+      <div class="text-center">
+        <img src="../assets/images/blogs/phd.png" alt="Papers summary" class="img-fluid" style="max-width: 100%; height: auto;">
+        <!-- <p class="figure-caption">Figure 1: Animation illustrating the continuous morphing of distribution p₀ to pₜ.</p> -->
+      </div>
+
+     <p>I come across a lot of interesting papers that may or may not be directly related to my research. 
+     I will be updating this page with summaries of such papers so that I can look back and utilize the findings if necessary.</p>
+    
+    <h3>Is Your Neural Network at Risk? The Pitfall of Adaptive Gradient Optimizers, 2024</h3>
+    <p><b>Summary:</b> This paper presents an interesting observation on model robustness based on the type of gradient optimizer used during training. 
+    Their extensive empirical and theoretical analysis shows that models trained with SGD optimizer exhibit higher robustness against adversarial perturbations 
+    compared to adaptive optimizers like RMSProp and ADAM.</p>
+    
+    <p><b>Why does this happen?</b> The paper performs a frequency analysis to explain this behavior. It demonstrates that natural datasets contain certain frequencies 
+    that do not significantly impact standard generalization performance. However, these irrelevant frequencies make a model
+     vulnerable to adversarial perturbations, depending on the optimizer used.</p>
+    
+    <h3>Feature Purification: How Adversarial Training Performs Robust Deep Learning, 2021</h3>
+    <p><b>Summary:</b> This paper discusses the impact of adversarial training in making models robust against adversarial perturbations. 
+    Adversarial perturbations arise due to the accumulation of dense mixtures in hidden weights during training. The goal of adversarial training is 
+    to remove such mixtures and purify hidden weights.</p>
+    
+    <p>The paper also proves that training a model solely on natural data results in non-robustness to adversarial perturbations. 
+    Additionally, it argues that adversarial training, even with weaker attacks like FGSM, 
+    can significantly increase provable robustness against such perturbations.</p>
+    
+    <h3>Position: Explain to Question not to Justify, ICML 2024</h3>
+    <p><b>Summary:</b> This position paper categorizes XAI research into two groups: human/value-oriented explanations (BLUE XAI) 
+    and model/validation-oriented explanations (RED XAI). It argues that RED XAI, which focuses on questioning models, 
+    spotting bugs, and debugging, is underexplored. The authors assert that explanations should empower model developers rather than serve end-users, 
+    as AI professionals need better techniques for debugging models to ensure safe AI.</p>
+    
+    <p>The authors also deconstruct some common fallacies in XAI:</p>
+    
+    <h4>Fallacy 1: “Interpretability is a binary concept and models can be divided into interpretable vs. black boxes.”</h4>
+    <p>Although models like linear regression or decision trees are often labeled as transparent, the authors argue that this division is misleading. Even tree-based or linear models can be difficult to analyze if they involve a very large number of variables, especially in real-world applications where models handle thousands of variables.</p>
+    
+    <h4>Fallacy 2: “A single XAI silver bullet exists, and we just need to find this best method.”</h4>
+    <p>Different XAI methods explain different components of a model, each making different assumptions. Therefore, no universal explanation method can serve as the ultimate solution.</p>
+    
+    <h4>Fallacy 3: “The illusion of a ‘true explanation.’”</h4>
+    <p>This fallacy suggests that explanation quality can be judged solely by comparing it to expert answers. However, what if a mismatch between an explanation and ground truth is due not to a bad explanation method but to an inherently flawed model?</p>
+
+
+
+  <script src="../assets/wowchemy.min.e8ee06ba8371980ffde659871dd593b0.js"></script>
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
