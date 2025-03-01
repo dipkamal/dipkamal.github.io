@@ -147,11 +147,18 @@ the features in the model or the total number of non-zero weight features in the
     
     <p>This shows that at every iteration, the weight is shrunk by a constant factor.</p>
     
-    <img src="l2.png" alt="L2 Regularization" style="float: right; margin-left: 10px;" />
+    <img src="../assets/images/blogs/l2.png" alt="L2 Regularization" style="float: right; margin-left: 10px;" />
     
     <p>In L2 regularization, model complexity can be viewed as a function of the sum of squared feature weights in the model. Hence, models with large weights are considered more complex. The goal of L2 regularization is to reduce the magnitude of weights, encouraging smaller but nonzero values, leading to a smoother model that is less sensitive to noise. Unlike L1 regularization, L2 does not enforce sparsity but instead distributes weight values more evenly across features.</p>
     
-    <p>For a squared error loss function with a two-dimensional weight vector, the regularization constraint is represented as a circle with radius \( \alpha \). The goal is to find a point where the loss is minimized while lying within the regularizer’s circle.</p>
+
+    <p>Consider a squared error loss function for a network with two dimensional weight vectors w; w1 and w2. 
+    The regularization term is constrained by the value of \(\alpha\). So, \(w1^2+w2^2\) can be expressed as a circle with radius \(\alpha\). The squared loss is plotted as a contour plot 
+    where the center is the minimal loss without regularization. In a sense, the unregularized contour is overfitting the training data. So, the goal of solving the objective function with 
+    L2 regularization is finding a point where the loss of the contour is minimum and it lies within the circle of regularizer. 
+    In the figure, \(w\) is the point. This is not equal to zero but close to it. If we increase the size of \(\alpha\), the size of the circle also increases and the model will be regularized more.
+</p>
+
     
     <h3>L1 Regularization</h3>
     <p>L1 regularization, also known as Lasso regression, penalizes the absolute sum of weights:</p>
@@ -166,7 +173,7 @@ the features in the model or the total number of non-zero weight features in the
     
     \[ w = w - \epsilon \alpha sign(w) - \nabla_w J(\theta; X,y) \]
     
-    <img src="l1.png" alt="L1 Regularization" style="float: left; margin-right: 10px;" />
+    <img src="../assets/images/blogs/l1.png" alt="L1 Regularization" style="float: left; margin-right: 10px;" />
     
     <p>In L1 regularization, model complexity is viewed as a function of the total number of features with nonzero weights. The goal is to drive some weights to zero, effectively selecting the most important features and producing a sparse parameter representation. This sparsity property makes L1 regularization useful for feature selection.</p>
     
