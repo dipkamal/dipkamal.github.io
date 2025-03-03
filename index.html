@@ -157,29 +157,12 @@
     <section id="about" class="home-section">
       <div class="home-section-bg"></div>
       <div class="container col-lg-8">
+        
         <div class="row">
-          <div class="col-lg-4 d-flex justify-content-center">
-            <div id="profile"><img
-                src="assets/profile.jpeg" alt="Dipkamal Bhusal"
-                width="400" height="400">
-              <ul class="network-icon" aria-hidden="true">
-                <li><a href="mailto:db1702@rit.edu" aria-label="envelope">
-                  <i class="fas fa-envelope big-icon"></i></a></li>  
-                <li><a href="https://scholar.google.com/citations?user=AAxpmiMAAAAJ&hl=en" target="_blank"
-                    rel="noopener" aria-label="graduation-cap"><i class="fas fa-graduation-cap big-icon"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/dipkamal/" target="_blank" rel="noopener"
-                    aria-label="linkedin"><i class="fab fa-linkedin big-icon"></i></a></li>
-                <li><a href="https://github.com/dipkamal" target="_blank" rel="noopener" aria-label="github"><i
-                      class="fab fa-github big-icon"></i></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-8">
-            <h2>About me</h2>
-            <div class="article-style">
-              <!--Align the text well-->
-
-              <p >
+  <div class="col-lg-8">
+    <h2>About me</h2>
+    <div class="article-style">
+      <p >
               My name is Dipkamal Bhusal, and I am currently a fourth-year Computer Science Ph.D. student at Golisano College of Computing and Information Sciences, Rochester Institute of Technology (RIT). My research focuses on reliable deep learning, with a particular emphasis on explainable machine learning.
 </p>
               <p >
@@ -191,10 +174,24 @@ From 2016-2021, I was involved as a co-founder of <a href="https://paailatechnol
 You can read more about Paaila Technology <a href="https://dipkamal.github.io/blogs/my_startup_story.html" target="_blank" rel="noopener">here</a>. Before pursuing my PhD, I was also involved as a
  lecturer of computer science at <a href="https://iimscollege.edu.np/" target="_blank" rel="noopener"> IIMS College</a>, Kathmandu from 2020 to 2021.
 </p >
-            </div>
-
-          </div>
-        </div>
+    </div>
+  </div>
+  <div class="col-lg-4 d-flex justify-content-center">
+    <div id="profile">
+      <img src="assets/profile.jpeg" alt="Dipkamal Bhusal" width="400" height="400">
+      <ul class="network-icon" aria-hidden="true">
+        <li><a href="mailto:db1702@rit.edu" aria-label="envelope">
+          <i class="fas fa-envelope big-icon"></i></a></li>  
+        <li><a href="https://scholar.google.com/citations?user=AAxpmiMAAAAJ&hl=en" target="_blank"
+            rel="noopener" aria-label="graduation-cap"><i class="fas fa-graduation-cap big-icon"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/dipkamal/" target="_blank" rel="noopener"
+            aria-label="linkedin"><i class="fab fa-linkedin big-icon"></i></a></li>
+        <li><a href="https://github.com/dipkamal" target="_blank" rel="noopener" aria-label="github"><i
+              class="fab fa-github big-icon"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
       </div>
     </section>
 
@@ -256,7 +253,7 @@ You can read more about Paaila Technology <a href="https://dipkamal.github.io/bl
             <div class="row">
 
               <div class="col-lg-4 profile center" >
-                <img src="assets/paper_figures/secure.png" height="400" width="400">
+                <img src="assets/paper_figures/secureforindex.png" height="400" width="400">
               </div>
               <div class="col-lg-8">
                 <div class="paper-title" style="margin-top:0px;">SECURE: Benchmarking Large Language Models for Cybersecurity</div>
@@ -264,7 +261,7 @@ You can read more about Paaila Technology <a href="https://dipkamal.github.io/bl
                   <b> Dipkamal Bhusal</b>, Md Tanvirul Alam, Le Nguyen, Ashim Mahara, Zachary Lightcap, Rodney, Romy, Grace, Benjamin, Nidhi Rastogi 
                   </p>                <p><i>40th Annual Computer Security Applications Conference (ACSAC) 2024 </i></p>
                 <p align="justify">
-                  arge Language Models (LLMs) have demonstrated potential in cybersecurity applications but have also caused lower confidence due to problems like hallucinations and a lack of truthfulness. Existing benchmarks provide general evaluations but do not sufficiently address the practical and applied aspects of LLM performance in cybersecurity-specific tasks. To address this gap, we introduce the SECURE (Security Extraction, Understanding & Reasoning Evaluation), a benchmark designed to assess LLMs performance in
+                  Large Language Models (LLMs) have demonstrated potential in cybersecurity applications but have also caused lower confidence due to problems like hallucinations and a lack of truthfulness. Existing benchmarks provide general evaluations but do not sufficiently address the practical and applied aspects of LLM performance in cybersecurity-specific tasks. To address this gap, we introduce the SECURE (Security Extraction, Understanding & Reasoning Evaluation), a benchmark designed to assess LLMs performance in
 realistic cybersecurity scenarios. 
               </p>
               <div class="center">
@@ -282,7 +279,7 @@ realistic cybersecurity scenarios.
               
 
               <div class="col-lg-4 profile center" >
-                <img src="assets/paper_figures/ctibench.png" height="400" width="400">
+                <img src="assets/paper_figures/ctibench2.png" height="400" width="400">
               </div>
               <div class="col-lg-8">
                 <div class="paper-title" style="margin-top:0px;">Ctibench: A benchmark for evaluating llms in cyber threat intelligence</div>
@@ -291,7 +288,7 @@ realistic cybersecurity scenarios.
                 </p>   
                  <p><i> 39th Annual Conference on Neural Information Processing Systems (NeurIPS) 2024 </i></p>
                 <p align="justify">
-                We extend the knowledge intensive LLM evaluation framework of SECURE and evaluate LLMs in CTI-specific tasks. Cyber threat intelligence (CTI) is crucial in today’s cybersecurity landscape, providing essential insights to understand and mitigate the ever-evolving cyber threats. The recent rise of Large Language Models (LLMs) have shown potential in this domain, but concerns about their reliability, accuracy, and hallucinations persist. CTIBench is a benchmark designed to assess LLMs’ performance in CTI applications. C
+                We extend the knowledge intensive LLM evaluation framework proposed in SECURE and evaluate LLMs in CTI-specific tasks. Cyber threat intelligence (CTI) is crucial in today’s cybersecurity landscape, providing essential insights to understand and mitigate the ever-evolving cyber threats. The recent rise of Large Language Models (LLMs) have shown potential in this domain, but concerns about their reliability, accuracy, and hallucinations persist. CTIBench is a benchmark designed to assess LLMs’ performance in CTI applications. C
               </p>
               <div class="center">
                 <p>
