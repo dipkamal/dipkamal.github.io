@@ -111,6 +111,12 @@
      <p>I come across a lot of interesting papers that may or may not be directly related to my research. 
      I will be updating this page with summaries of such papers so that I can look back and utilize the findings if necessary.</p>
     
+    <h3> MEMO: Test Time Robustness via Adaptation and Augmentation (Neurips 2022)</h3>
+     
+<p>The paper proposes a simple approach that can be used in any test setting where the model is probabilistic and adaptable. The idea is to apply different data augmentations of a test sample and then adapt the model parameters by minimizing the entropy of the model’s average output distribution across the augmentations. 
+  The high-level objective of this adaptation is to ensure the model makes the same predictions across several augmentations. </p>
+
+    
     <h3>Is Your Neural Network at Risk? The Pitfall of Adaptive Gradient Optimizers, 2024</h3>
     <p><b>Summary:</b> This paper presents an interesting observation on model robustness based on the type of gradient optimizer used during training. 
     Their extensive empirical and theoretical analysis shows that models trained with SGD optimizer exhibit higher robustness against adversarial perturbations 
